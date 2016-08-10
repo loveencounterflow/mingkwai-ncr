@@ -7,7 +7,7 @@
 ############################################################################################################
 CND                       = require 'cnd'
 rpr                       = CND.rpr.bind CND
-badge                     = 'MINGKWAI-NCR'
+badge                     = 'NCR-UNICODE-CACHE-WRITER/tests'
 log                       = CND.get_logger 'plain',     badge
 info                      = CND.get_logger 'info',      badge
 whisper                   = CND.get_logger 'whisper',   badge
@@ -18,8 +18,10 @@ help                      = CND.get_logger 'help',      badge
 urge                      = CND.get_logger 'urge',      badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
-NCR                       = require 'ncr'
-NCR._get_unicode_isl()
+{ step }                  = require 'coffeenode-suspend'
+#...........................................................................................................
+test                      = require 'guy-test'
+
 
 
 

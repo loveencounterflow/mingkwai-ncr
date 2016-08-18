@@ -1,7 +1,7 @@
 {
   "name": "mingkwai-ncr",
   "version": "0.0.0",
-  "description": "A derivative of [NCR](https://github.com/loveencounterflow/mingkwai-ncr.git) with extra data for CJK character processing and typesetting",
+  "description": "A derivative of https://github.com/loveencounterflow/ncr with extra data for CJK character processing and typesetting",
   "main": "lib/main.js",
   "scripts": {
     "build": "coffee --map -o lib -c src",

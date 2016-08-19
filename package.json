@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "cnd": "^4.1.1",
-    "ncr": "0.2.5",
-    "multimix": "0.0.2"
+    "multimix": "0.0.2",
+    "ncr": "^0.2.11"
   }
 }

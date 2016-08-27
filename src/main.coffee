@@ -19,49 +19,84 @@ urge                      = CND.get_logger 'urge',      badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
 NCR                       = require 'ncr'
-NCR._get_unicode_isl()
-
-
+module.exports            = MKNCR = NCR._copy_library 'xncr'
+ISL                       = MKNCR._ISL
+u                         = MKNCR.unicode_isl
 
 #-----------------------------------------------------------------------------------------------------------
-@[ "(v2) create derivatives of NCR (3)" ] = ( T ) ->
-  ISL           = require 'interskiplist'
+add_data = ->
   #.........................................................................................................
-  ### General data ###
-  # @_Unicode_demo_add_base       u
-  # @_Unicode_demo_add_planes     u
-  # @_Unicode_demo_add_areas      u
-  # @_Unicode_demo_add_blocks     u
-  u = ISL.copy require './unicode-isl'
-  #.........................................................................................................
-  ### CJK-specific data ###
-  @_Unicode_demo_add_cjk_tags       u
+  # ### CJK-specific data ###
+  # add_cjk_tags()
   ### Jizura-specific data ###
-  @_Unicode_demo_add_jzr_tag        u
-  @_Unicode_demo_add_sims           u
+  add_jzr_tag()
+  add_sims()
   ### Mingkwai-specific data ###
-  @_Unicode_demo_add_styles         u
-  ISL.add u, { lo: 0x0, hi: 0x10ffff, tag: 'foo bar', }
-  #.........................................................................................................
-  reducers = { name: 'skip', tex: 'list', style: 'list', type: 'skip', }
-  for glyph in Array.from '《A↻\ue000鿕\u9fd6'
-    cid       = glyph.codePointAt 0
-    cid_hex   = hex cid
-    { plane
-      area
-      block
-      rsg
-      tag
-      tex
-      style } = ISL.aggregate u, cid, reducers
-    rsg      ?= 'u-???'
-    tag       = tag.join ', '
-    urge cid_hex, ( CND.lime rpr glyph ), ( CND.gold "#{plane} / #{area} / #{block} / #{rsg}" ), ( CND.white tag )
+  add_styles()
   #.........................................................................................................
   return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_show_sample = ( isl ) ->
+add_cjk_tags = ->
+  throw new Error "currently not used"
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
+    continue unless ( range = ranges[ rsg ] )?
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add u, { lo, hi, tag, }
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+add_styles = ->
+  mkts_options        = require '../../mingkwai-typesetter/options'
+  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
+  #.........................................................................................................
+  lo          = 0x000000
+  hi          = 0x10ffff
+  tex         = tex_command_by_rsgs[ 'fallback' ]
+  name        = "style:fallback"
+  ISL.add u, { name, lo, hi, tex, }
+  #.........................................................................................................
+  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
+    glyph       = MKNCR.normalize_glyph glyph
+    rsg         = MKNCR.as_rsg          glyph
+    cid         = MKNCR.as_cid          glyph
+    lo = hi     = cid
+    cid_hex     = hex cid
+    name        = "glyph-#{cid_hex}"
+    name        = "style:#{name}"
+    ISL.add u, { name, lo, hi, rsg, style, }
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+add_jzr_tag = ->
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
+  # debug '©95520', ranges
+  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
+    continue unless ( range = ranges[ rsg ] )?
+    debug '©74688', range, rsg, tag
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add u, { lo, hi, tag, }
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+add_sims = ->
+  #.........................................................................................................
+  return null
+
+
+###
+
+#-----------------------------------------------------------------------------------------------------------
+show_sample = ->
   XNCR = require './xncr'
   #.........................................................................................................
   # is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
@@ -83,64 +118,4 @@ NCR._get_unicode_isl()
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
   #.........................................................................................................
   return null
-
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_styles = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  XNCR                = require './xncr'
-  mkts_options        = require '../../mingkwai-typesetter/options'
-  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
-  #.........................................................................................................
-  lo          = 0x000000
-  hi          = 0x10ffff
-  tex         = tex_command_by_rsgs[ 'fallback' ]
-  name        = "style:fallback"
-  ISL.add isl, { name, lo, hi, tex, }
-  #.........................................................................................................
-  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph       = XNCR.normalize_glyph  glyph
-    rsg         = XNCR.as_rsg           glyph
-    cid         = XNCR.as_cid           glyph
-    lo = hi     = cid
-    cid_hex     = hex cid
-    name        = "glyph-#{cid_hex}"
-    name        = "style:#{name}"
-    ISL.add isl, { name, lo, hi, rsg, style, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_cjk_tags = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_jzr_tag = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
-  # debug '©95520', ranges
-  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    debug '©74688', range, rsg, tag
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_sims = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  #.........................................................................................................
-  return isl
+###

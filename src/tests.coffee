@@ -42,9 +42,10 @@ u                         = MKNCR.unicode_isl
 #-----------------------------------------------------------------------------------------------------------
 @[ "demo" ] = ( T ) ->
   #.........................................................................................................
-  for glyph in MKNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
+  # for glyph in MKNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
+  for glyph in MKNCR.chrs_from_text "《🖹"
     cid = MKNCR.as_cid glyph
-    debug glyph, ISL.aggregate u, glyph
+    debug glyph, ISL.aggregate u, cid
     # cid_hex = hex cid
     # # debug glyph, cid_hex, find_id_text u, cid
     # descriptions = ISL.find_entries_with_all_points u, cid
@@ -60,12 +61,37 @@ u                         = MKNCR.unicode_isl
   #.........................................................................................................
   return null
 
+#-----------------------------------------------------------------------------------------------------------
+@[ "aggregate" ] = ( T ) ->
+  u         = MKNCR.unicode_isl
+  ISL       = MKNCR._ISL
+  probes_and_matchers = [
+    [ 'q', {"tag":["assigned"],"rsg":"u-latn"}, ]
+    [ '里', {"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk"}, ]
+    [ '䊷', {"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk-xa"}, ]
+    [ '《', {"tag":["assigned","cjk","punctuation"],"rsg":"u-cjk-sym"}, ]
+    [ '🖹', {"tag":["assigned"]}, ]
+    [ ( String.fromCodePoint 0x1f6f7 ), {"tag":["unassigned"]}, ]
+    [ 887, {"tag":["assigned"],"rsg":"u-grek"}, ]
+    [ 888, {"tag":["unassigned"],"rsg":"u-grek"}, ]
+    [ 889, {"tag":["unassigned"],"rsg":"u-grek"}, ]
+    [ 890, {"tag":["assigned"],"rsg":"u-grek"}, ]
+    ]
+  reducers  = { '*': 'skip', 'tag': 'tag', 'rsg': 'assign', }
+  for [ probe, matcher, ] in probes_and_matchers
+    result = ISL.aggregate u, probe, reducers
+    debug '32771', probe, JSON.stringify result
+    T.eq result, matcher
+  #.........................................................................................................
+  return null
+
 
 ############################################################################################################
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
   include = [
-    "demo"
+    # "demo"
+    "aggregate"
     ]
   @_prune()
   @_main()

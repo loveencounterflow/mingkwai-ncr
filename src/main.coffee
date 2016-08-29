@@ -47,9 +47,6 @@ populate_isl = ( handler ) ->
   source_age          = Math.max source_age, get_file_age S.paths.strokeorders
   cache_age           = get_file_age S.paths.cache, true
   must_rewrite_cache  = cache_age < source_age
-  ###
-  must_rewrite_cache  = yes
-  ###
   #.........................................................................................................
   if must_rewrite_cache then  rewrite_cache S, handler
   else                        read_cache    S, handler
@@ -67,13 +64,8 @@ rewrite_cache = ( S, handler ) ->
   S.collector = []
   #.........................................................................................................
   step ( resume ) ->
-    debug '32118', S.collector.length
     yield populate_isl_with_tex_formats  S, resume
-    debug '32118', S.collector.length
-    ###
-    yield _populate_isl_with_sims         S, resume
-    debug '32118', S.collector.length
-    ###
+    yield populate_isl_with_sims         S, resume
     FS.writeFileSync S.paths.cache, JSON.stringify S.collector, null, '  '
     ISL.add u, entry for entry in S.collector
     #.......................................................................................................
@@ -100,17 +92,15 @@ populate_isl_with_tex_formats = ( S, handler ) ->
     S.collector.push { lo, hi, tex, }
   #.........................................................................................................
   ### TAINT must resolve (X)NCRs ###
-  ###
   for glyph, glyph_style of glyph_styles
     cid             = MKNCR.as_cid glyph
     glyph_style_tex = glyph_style_as_tex glyph, glyph_style
     S.collector.push { lo: cid, hi: cid, tex: { codepoint: glyph_style_tex, }, }
-  ###
   #.........................................................................................................
   handler()
 
 #-----------------------------------------------------------------------------------------------------------
-_populate_isl_with_sims = ( S, handler ) ->
+populate_isl_with_sims = ( S, handler ) ->
   #.........................................................................................................
   $add_intervals = =>
     return $ ( record ) =>
@@ -228,8 +218,8 @@ demo = ( handler ) ->
     #.......................................................................................................
     # text  = '([Xqf]) ([里䊷䊷里]) ([Xqf])'
     # text  = 'q里䊷f'
-    text = '龵⿸釒金𤴔丨亅㐅乂'
     text = '釒'
+    text = '龵⿸釒金𤴔丨亅㐅乂'
     for glyph in Array.from text
       description = aggregate glyph
       info glyph

@@ -11,6 +11,41 @@
 A derivative of [NCR](https://github.com/loveencounterflow/mingkwai-ncr.git) with extra data for CJK
 character processing and typesetting.
 
+## Usage
+
+**Note**—This module is intended to be used as is customary with NodeJS / npm modules, i.e. using
+`require`:
+
+```coffee
+MKNCR = require 'mingkwai-ncr'
+```
+
+There are, however, a few points to keep in mind:
+
+* `mingkwai-ncr` only works properly in tandem with `jizura-datasources` and `jizura-db-feeder`;
+
+* those modules are expected to be found within the same
+  ['rack'](https://github.com/loveencounterflow/mingkwai-rack) folder as `mingkwai-ncr` itself;
+
+* `mingkwai-ncr/data/isl-entries.json` contains a cached version of the data that is to be organized into
+  an [interval skip list](https://github.com/loveencounterflow/interskiplist) for efficient per-codepoint
+  retrieval;
+
+* when any data source files are found to be newer than the cache at the point in time when `mingkwai-ncr`
+  is `require`d from another module, an exception with a helpful error message will be raised; depending
+  on your current location in the file tree, that message might read
+
+  ```
+  MINGKWAI-NCR  !  cache file
+  MINGKWAI-NCR  !  data/isl-entries.json
+  MINGKWAI-NCR  !  is out of date
+  MINGKWAI-NCR  ?  run the command
+  MINGKWAI-NCR  ?  node lib/main.js
+  MINGKWAI-NCR  ?  to rebuild data/isl-entries.json
+  ```
+
+
+
 <!--
 
 API Usage over currently active projects:

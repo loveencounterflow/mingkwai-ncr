@@ -21,7 +21,7 @@ character processing and typesetting.
 MKNCR = require 'mingkwai-ncr'
 ```
 
-There are, however, a few points to keep in mind:
+There are a few points to keep in mind:
 
 * `mingkwai-ncr` only works properly in tandem with `jizura-datasources` and `jizura-db-feeder`;
 

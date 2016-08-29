@@ -11,6 +11,8 @@ log                       = CND.get_logger 'plain',     badge
 debug                     = CND.get_logger 'debug',     badge
 info                      = CND.get_logger 'info',      badge
 urge                      = CND.get_logger 'urge',      badge
+warn                      = CND.get_logger 'warn',      badge
+help                      = CND.get_logger 'help',      badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
 D                         = require 'pipedreams'
@@ -48,19 +50,32 @@ populate_isl = ( handler ) ->
   cache_age           = get_file_age S.paths.cache, true
   must_rewrite_cache  = cache_age < source_age
   #.........................................................................................................
-  if must_rewrite_cache then  rewrite_cache S, handler
-  else                        read_cache    S, handler
+  if must_rewrite_cache
+    if module.parent? and not handler?
+      cache_path = PATH.relative process.cwd(), S.paths.cache
+      warn "cache file"
+      warn "#{cache_path}"
+      warn "is out of date"
+      urge "run the command"
+      urge CND.white "node #{PATH.relative process.cwd(), __filename}"
+      urge "to rebuild #{cache_path}"
+      throw new Error "cache #{S.paths.cache} out of date"
+    rewrite_cache S, handler
+  else
+    handler ?= ( error ) -> throw error if error?
+    read_cache S, handler
   #.........................................................................................................
   return null
 
 #-----------------------------------------------------------------------------------------------------------
 read_cache = ( S, handler ) ->
   ISL.add u, entry for entry in require S.paths.cache
-  handler()
+  handler null, S if handler?
+  return null
 
 #-----------------------------------------------------------------------------------------------------------
 rewrite_cache = ( S, handler ) ->
-  urge "rewriting cache"
+  help "rewriting cache"
   S.collector = []
   #.........................................................................................................
   step ( resume ) ->
@@ -69,7 +84,7 @@ rewrite_cache = ( S, handler ) ->
     FS.writeFileSync S.paths.cache, JSON.stringify S.collector, null, '  '
     ISL.add u, entry for entry in S.collector
     #.......................................................................................................
-    handler()
+    handler null, S if handler?
   #.........................................................................................................
   return null
 
@@ -80,7 +95,6 @@ populate_isl_with_tex_formats = ( S, handler ) ->
   tex_command_by_rsgs       = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   glyph_styles              = mkts_options[ 'tex' ][ 'glyph-styles'        ]
   #.........................................................................................................
-  debug ( key for key of u[ 'indexes' ] )
   for rsg, block_command of tex_command_by_rsgs
     for entry in ISL.find_entries u, 'rsg', rsg
       ### Note: must push new entries to collector, cannot recycle existing ones here ###
@@ -97,7 +111,7 @@ populate_isl_with_tex_formats = ( S, handler ) ->
     glyph_style_tex = glyph_style_as_tex glyph, glyph_style
     S.collector.push { lo: cid, hi: cid, tex: { codepoint: glyph_style_tex, }, }
   #.........................................................................................................
-  handler()
+  handler null, S
 
 #-----------------------------------------------------------------------------------------------------------
 populate_isl_with_sims = ( S, handler ) ->
@@ -135,7 +149,7 @@ populate_isl_with_sims = ( S, handler ) ->
   #.........................................................................................................
   input
     .pipe $add_intervals()
-    .pipe $ 'finish', handler
+    .pipe $ 'finish', -> handler null, S
   #.........................................................................................................
   return null
 
@@ -177,109 +191,25 @@ glyph_style_as_tex = ( glyph, glyph_style ) ->
   R = R.join ''
   return R
 
-#-----------------------------------------------------------------------------------------------------------
-demo = ( handler ) ->
-  step ( resume ) =>
-    yield populate_isl resume
-    ### TAINT tags should be collected during SIM reading ###
-    sim_tags = [
-      'sim/source/global'
-      'sim/source/components'
-      'sim/source/components/search'
-      'sim/source/false-identity'
-      'sim/target/global'
-      'sim/target/components'
-      'sim/target/components/search'
-      'sim/target/false-identity'
-      ]
-    #.......................................................................................................
-    reducers =
-      '*':  'skip'
-      tag:  'tag'
-      rsg:  'assign'
-      # sim:  ( values, context ) ->
-      #   ### TAINT should be a standard reducer ###
-      #   debug '7701', values
-      #   R = {}
-      #   for value in values
-      #     for name, sub_value of value
-      #       R[ name ] = sub_value
-      #   return R
-      tex:  ( values, context ) ->
-        ### TAINT should be a standard reducer ###
-        R = {}
-        for value in values
-          for name, sub_value of value
-            R[ name ] = sub_value
-        return R
-    #.......................................................................................................
-    reducers[ sim_tag ] = 'list' for sim_tag in sim_tags
-    aggregate           = _get_aggregate MKNCR, reducers
-    #.......................................................................................................
-    # text  = '([Xqf]) ([里䊷䊷里]) ([Xqf])'
-    # text  = 'q里䊷f'
-    text = '釒'
-    text = '龵⿸釒金𤴔丨亅㐅乂'
-    for glyph in Array.from text
-      description = aggregate glyph
-      info glyph
-      urge '  tag:', ( description[ 'tag' ] ? [ '-/-' ] ).join ', '
-      urge '  rsg:', description[ 'rsg' ]
-      # if ( sim = description[ 'sim' ] )?
-      #   for sim_tag, value of sim
-      #     urge "  sim:#{sim_tag}: #{rpr value}"
-      # else
-      #   urge '  sim:', '-/-'
-      for sim_tag in sim_tags
-        continue unless ( value = description[ sim_tag ] )?
-        urge "  #{sim_tag}:", value
-      urge '  blk:', description[ 'tex' ]?[ 'block'     ] ? '-/-'
-      urge '  cp: ', description[ 'tex' ]?[ 'codepoint' ] ? '-/-'
-    #.......................................................................................................
-    handler()
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-demo_2 = ->
-  #.........................................................................................................
-  # tag = 'sim/is-target/global'
-  tags = [
-    'global'
-    'components'
-    'components/search'
-    'false-identity'
-    ]
-  for tag in tags
-    echo tag
-    search_tag  = "sim/is-target/#{tag}"
-    entry_tag   = "sim/source/#{tag}"
-    for entry in MKNCR._ISL.find_entries u, 'tag', search_tag
-      ### Silently assuming that all relevant entries represent single-character intervals ###
-      target_glyph_info = MKNCR.analyze ( cid = entry[ 'lo' ] )
-      target_glyph      = target_glyph_info[ 'uchr' ]
-      target_fncr       = target_glyph_info[ 'fncr' ]
-      source_glyph      = entry[ entry_tag ]
-      source_glyph_info = MKNCR.analyze source_glyph
-      source_fncr       = source_glyph_info[ 'fncr' ]
-      echo target_fncr, target_glyph, '<-', source_fncr, source_glyph
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-_get_aggregate = ( ncr, reducers ) ->
-  cache = {}
-  return ( glyph ) =>
-    return R if ( R = cache[ glyph ] )?
-    return cache[ glyph ] = ncr._ISL.aggregate ncr.unicode_isl, glyph, reducers
-
-
-
-
 
 ############################################################################################################
-unless module.parent?
-  demo ( error ) ->
+if module.parent?
+  ### If this module is `require`d from another module, run `populate_isl` *without* callback. This will
+  succeed if cache is present and up to date; it will fail with a helpful message otherwise. ###
+  populate_isl()
+  # populate_isl ( error, S ) ->
+  #   throw error if error?
+  #   return null
+else
+  ### If this module is run as a script, rebuild the cache when necessary: ###
+  populate_isl ( error, S ) ->
     throw error if error?
+    help "#{S.paths.cache}"
+    help "is up to date"
+    return null
+
+
+
+
 
 

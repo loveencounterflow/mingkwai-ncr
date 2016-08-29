@@ -62,7 +62,8 @@ do =>
   reducers[ sim_tag ] = 'list' for sim_tag in sim_tags
   #.........................................................................................................
   ### TAINT experimental ###
-  MKNCR._aggregate = ISL.aggregate.use u, reducers
+  aggregate       = ISL.aggregate.use u, reducers, memoize: yes
+  MKNCR.describe  = ( P... ) -> aggregate @as_cid P...
 
 #-----------------------------------------------------------------------------------------------------------
 get_file_time = ( path, allow_missing = no ) ->

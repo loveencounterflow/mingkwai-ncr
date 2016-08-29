@@ -36,14 +36,19 @@ There are, however, a few points to keep in mind:
   on your current location in the file tree, that message might read
 
   ```
-  MINGKWAI-NCR  !  cache file
-  MINGKWAI-NCR  !  data/isl-entries.json
-  MINGKWAI-NCR  !  is out of date
-  MINGKWAI-NCR  ?  run the command
-  MINGKWAI-NCR  ?  node lib/main.js
-  MINGKWAI-NCR  ?  to rebuild data/isl-entries.json
+  cache file
+  data/isl-entries.json
+  is out of date
+  run the command
+  node lib/main.js
+  to rebuild data/isl-entries.json
   ```
 
+  You can then run `node lib/main.js` (that is, tell NodeJS to run `mingkwai-ncr/lib/main.js` as
+  a script) to rebuild the cache.
+
+  I see no way to make the cache-rebuilding step fully transparent; this is because `require 'x'` is a
+  synchronous call, but rebuilding the cache is inherently asynchronous.
 
 
 <!--

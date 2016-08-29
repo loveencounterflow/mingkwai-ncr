@@ -25,9 +25,47 @@ module.exports            = MKNCR = NCR._copy_library 'xncr'
 ISL                       = MKNCR._ISL
 u                         = MKNCR.unicode_isl
 
+#-----------------------------------------------------------------------------------------------------------
+do =>
+  #.........................................................................................................
+  sim_tags = [
+    'sim/source/global'
+    'sim/source/components'
+    'sim/source/components/search'
+    'sim/source/false-identity'
+    'sim/target/global'
+    'sim/target/components'
+    'sim/target/components/search'
+    'sim/target/false-identity'
+    ]
+  #.........................................................................................................
+  reducers =
+    '*':  'skip'
+    tag:  'tag'
+    rsg:  'assign'
+    # sim:  ( values, context ) ->
+    #   ### TAINT should be a standard reducer ###
+    #   debug '7701', values
+    #   R = {}
+    #   for value in values
+    #     for name, sub_value of value
+    #       R[ name ] = sub_value
+    #   return R
+    tex:  ( values, context ) ->
+      ### TAINT should be a standard reducer ###
+      R = {}
+      for value in values
+        for name, sub_value of value
+          R[ name ] = sub_value
+      return R
+  #.........................................................................................................
+  reducers[ sim_tag ] = 'list' for sim_tag in sim_tags
+  #.........................................................................................................
+  ### TAINT experimental ###
+  MKNCR._aggregate = ISL.aggregate.use u, reducers
 
 #-----------------------------------------------------------------------------------------------------------
-get_file_age = ( path, allow_missing = no ) ->
+get_file_time = ( path, allow_missing = no ) ->
   try
     stats = FS.statSync path
   catch error
@@ -44,11 +82,11 @@ populate_isl = ( handler ) ->
       jizura_datasources:   PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
   S.paths.strokeorders = PATH.resolve S.paths.jizura_datasources, 'shape/shape-strokeorder-zhaziwubifa.txt'
   #.........................................................................................................
-  source_age          = -Infinity
-  source_age          = Math.max source_age, get_file_age S.paths.mkts_options
-  source_age          = Math.max source_age, get_file_age S.paths.strokeorders
-  cache_age           = get_file_age S.paths.cache, true
-  must_rewrite_cache  = cache_age < source_age
+  source_time         = -Infinity
+  source_time         = Math.max source_time, get_file_time S.paths.mkts_options
+  source_time         = Math.max source_time, get_file_time S.paths.strokeorders
+  cache_time          = get_file_time S.paths.cache, true
+  must_rewrite_cache  = cache_time < source_time
   #.........................................................................................................
   if must_rewrite_cache
     if module.parent? and not handler?

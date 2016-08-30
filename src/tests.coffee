@@ -78,9 +78,9 @@ u                         = MKNCR.unicode_isl
     [889,{"tag":["unassigned"],"rsg":"u-grek"}]
     [890,{"tag":["assigned"],"rsg":"u-grek"}]
     ]
-  reducers  = { '*': 'skip', 'tag': 'tag', 'rsg': 'assign', }
+  recipe  = { fallback: 'skip', fields: { 'tag': 'tag', 'rsg': 'assign', }, }
   for [ probe, matcher, ] in probes_and_matchers
-    result = ISL.aggregate u, probe, reducers
+    result = ISL.aggregate u, probe, recipe
     debug '32771', JSON.stringify [ probe, result, ]
     T.eq result, matcher
   #.........................................................................................................
@@ -100,27 +100,28 @@ u                         = MKNCR.unicode_isl
     'sim/target/false-identity'
     ]
   #.........................................................................................................
-  reducers =
-    '*':  'skip'
-    tag:  'tag'
-    rsg:  'assign'
-    # sim:  ( values, context ) ->
-    #   ### TAINT should be a standard reducer ###
-    #   debug '7701', values
-    #   R = {}
-    #   for value in values
-    #     for name, sub_value of value
-    #       R[ name ] = sub_value
-    #   return R
-    tex:  ( values, context ) ->
-      ### TAINT should be a standard reducer ###
-      R = {}
-      for value in values
-        for name, sub_value of value
-          R[ name ] = sub_value
-      return R
+  recipe =
+    fallback: 'skip'
+    fields:
+      tag:  'tag'
+      rsg:  'assign'
+      # sim:  ( values, context ) ->
+      #   ### TAINT should be a standard reducer ###
+      #   debug '7701', values
+      #   R = {}
+      #   for value in values
+      #     for name, sub_value of value
+      #       R[ name ] = sub_value
+      #   return R
+      tex:  ( values, context ) ->
+        ### TAINT should be a standard reducer ###
+        R = {}
+        for value in values
+          for name, sub_value of value
+            R[ name ] = sub_value
+        return R
   #.........................................................................................................
-  reducers[ sim_tag ] = 'list' for sim_tag in sim_tags
+  recipe[ 'fields' ][ sim_tag ] = 'list' for sim_tag in sim_tags
   #.........................................................................................................
   # text  = '([Xqf]) ([里䊷䊷里]) ([Xqf])'
   # text  = 'q里䊷f'
@@ -138,8 +139,10 @@ u                         = MKNCR.unicode_isl
     ["乂",{"tag":["assigned","cjk","ideograph","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/components":["㐅","乄"],"tex":{"block":"\\cn"}}]
     ]
   for [ probe, matcher, ] in probes_and_matchers
-    description = ISL.aggregate u, probe, reducers
-    T.eq matcher, description
+    description = ISL.aggregate u, probe, recipe
+    T.eq description, matcher
+    # help '28107', matcher
+    # warn '28107', description
     # debug '40223', JSON.stringify [ probe, description, ]; continue
     info probe
     urge '  tag:', ( description[ 'tag' ] ? [ '-/-' ] ).join ', '

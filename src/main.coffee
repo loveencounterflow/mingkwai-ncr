@@ -39,31 +39,45 @@ do =>
     'sim/target/false-identity'
     ]
   #.........................................................................................................
-  reducers =
-    '*':  'skip'
-    tag:  'tag'
-    rsg:  'assign'
-    # sim:  ( values, context ) ->
-    #   ### TAINT should be a standard reducer ###
-    #   debug '7701', values
-    #   R = {}
-    #   for value in values
-    #     for name, sub_value of value
-    #       R[ name ] = sub_value
-    #   return R
-    tex:  ( values, context ) ->
-      ### TAINT should be a standard reducer ###
-      R = {}
-      for value in values
-        for name, sub_value of value
-          R[ name ] = sub_value
-      return R
-  #.........................................................................................................
-  reducers[ sim_tag ] = 'list' for sim_tag in sim_tags
+  recipe =
+    fallback:  'skip'
+    fields:
+      tag:  'tag'
+      rsg:  'assign'
+      # sim:  ( values, context ) ->
+      #   ### TAINT should be a standard reducer ###
+      #   debug '7701', values
+      #   R = {}
+      #   for value in values
+      #     for name, sub_value of value
+      #       R[ name ] = sub_value
+      #   return R
+      tex:  ( values, context ) ->
+        ### TAINT should be a standard reducer ###
+        R = {}
+        for value in values
+          for name, sub_value of value
+            R[ name ] = sub_value
+        return R
+    #.........................................................................................................
+  recipe[ 'fields' ][ sim_tag ] = 'list' for sim_tag in sim_tags
   #.........................................................................................................
   ### TAINT experimental ###
-  aggregate       = ISL.aggregate.use u, reducers, memoize: yes
-  MKNCR.describe  = ( P... ) -> aggregate @as_cid P...
+  aggregate = ISL.aggregate.use u, recipe, memoize: yes
+  #.........................................................................................................
+  do =>
+    cache = {}
+    MKNCR.describe = ( P... ) ->
+      ### TAINT what about gaiji? ###
+      id          = JSON.stringify P
+      return R if ( R = cache[ id ] )?
+      A           = @analyze P...
+      R           = aggregate A[ 'cid' ]
+      R[ key ]    = value for key, value of A
+      cache[ id ] = R
+      return R
+  #.........................................................................................................
+  return null
 
 #-----------------------------------------------------------------------------------------------------------
 get_file_time = ( path, allow_missing = no ) ->

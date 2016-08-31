@@ -149,15 +149,19 @@ populate_isl_with_tex_formats = ( S, handler ) ->
   tex_command_by_rsgs       = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   glyph_styles              = mkts_options[ 'tex' ][ 'glyph-styles'        ]
   #.........................................................................................................
+  fallback_command          = block_style_as_tex tex_command_by_rsgs[ 'fallback' ] ? 'mktsRsgFb'
+  S.collector.push { lo: 0x000000, hi: 0x10ffff, tex: { block: fallback_command, }, }
+  #.........................................................................................................
   for rsg, block_command of tex_command_by_rsgs
+    continue if rsg is 'fallback'
     for entry in ISL.find_entries u, 'rsg', rsg
       ### Note: must push new entries to collector, cannot recycle existing ones here ###
       # target            = entry[ 'tex' ] ?= {}
       # target[ 'block' ] = block_style_as_tex block_command
       { lo, hi, tex, }  = entry
       tex              ?= {}
-      tex[ 'block' ]    = block_style_as_tex block_command unless block_command is 'latin'
-    S.collector.push { lo, hi, tex, }
+      tex[ 'block' ]    = block_style_as_tex block_command # unless block_command is 'latin'
+      S.collector.push { lo, hi, tex, }
   #.........................................................................................................
   ### TAINT must resolve (X)NCRs ###
   for glyph, glyph_style of glyph_styles

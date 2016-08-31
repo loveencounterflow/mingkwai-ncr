@@ -2,65 +2,47 @@
   {
     "lo": 0,
     "hi": 127,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 256,
     "hi": 383,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 384,
     "hi": 591,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 128,
     "hi": 255,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 8192,
     "hi": 8303,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 880,
     "hi": 1023,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 768,
     "hi": 879,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 1024,
     "hi": 1279,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 1280,
     "hi": 1327,
-    "tex": {
-      "block": "\\latin"
-    }
+    "tex": {}
   },
   {
     "lo": 19968,
@@ -18455,5 +18437,33 @@
     "hi": 173568,
     "sim/source/global": "𪘀",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
+  },
+  {
+    "lo": 32,
+    "hi": 32,
+    "tag": [
+      "ascii-whitespace"
+    ]
+  },
+  {
+    "lo": 10,
+    "hi": 10,
+    "tag": [
+      "ascii-whitespace"
+    ]
+  },
+  {
+    "lo": 13,
+    "hi": 13,
+    "tag": [
+      "ascii-whitespace"
+    ]
+  },
+  {
+    "lo": 9,
+    "hi": 9,
+    "tag": [
+      "ascii-whitespace"
+    ]
   }
 ]

@@ -134,6 +134,7 @@ rewrite_cache = ( S, handler ) ->
   step ( resume ) ->
     yield populate_isl_with_tex_formats  S, resume
     yield populate_isl_with_sims         S, resume
+    yield populate_isl_with_extra_data   S, resume
     FS.writeFileSync S.paths.cache, JSON.stringify S.collector, null, '  '
     ISL.add u, entry for entry in S.collector
     #.......................................................................................................
@@ -155,7 +156,7 @@ populate_isl_with_tex_formats = ( S, handler ) ->
       # target[ 'block' ] = block_style_as_tex block_command
       { lo, hi, tex, }  = entry
       tex              ?= {}
-      tex[ 'block' ]    = block_style_as_tex block_command
+      tex[ 'block' ]    = block_style_as_tex block_command unless block_command is 'latin'
     S.collector.push { lo, hi, tex, }
   #.........................................................................................................
   ### TAINT must resolve (X)NCRs ###
@@ -163,6 +164,14 @@ populate_isl_with_tex_formats = ( S, handler ) ->
     cid             = MKNCR.as_cid glyph
     glyph_style_tex = glyph_style_as_tex glyph, glyph_style
     S.collector.push { lo: cid, hi: cid, tex: { codepoint: glyph_style_tex, }, }
+  #.........................................................................................................
+  handler null, S
+
+#-----------------------------------------------------------------------------------------------------------
+populate_isl_with_extra_data = ( S, handler ) ->
+  for chr in Array.from '\x20\n\r\t'
+    lo = hi = MKNCR.as_cid chr
+    S.collector.push { lo, hi, tag: [ 'ascii-whitespace' ] }
   #.........................................................................................................
   handler null, S
 

@@ -25,6 +25,45 @@ module.exports            = MKNCR = NCR._copy_library 'xncr'
 ISL                       = MKNCR._ISL
 u                         = MKNCR.unicode_isl
 
+#===========================================================================================================
+# NEW API METHODS
+#-----------------------------------------------------------------------------------------------------------
+MKNCR.is_inner_glyph       = ( glyph     ) -> ( @as_csg glyph ) in [ 'u', 'jzr', ]
+# MKNCR.chr_from_cid_and_csg = ( cid, csg  ) -> CHR.as_chr cid, { csg: csg }
+# MKNCR.cid_range_from_rsg   = ( rsg       ) -> CHR.cid_range_from_rsg rsg
+# MKNCR.html_from_text       = ( glyph     ) -> CHR.html_from_text   glyph, settings
+
+#-----------------------------------------------------------------------------------------------------------
+MKNCR.jzr_as_uchr = ( glyph ) ->
+  return @as_uchr glyph if ( @as_csg glyph ) is 'jzr'
+  return glyph
+
+#-----------------------------------------------------------------------------------------------------------
+MKNCR.normalize = ( glyph ) ->
+  throw new Error "XNCHR.normalize is deprecated"
+  rsg = @as_rsg glyph
+  cid = @as_cid glyph
+  csg = if rsg is 'u-pua' then 'jzr' else 'u'
+  return @chr_from_cid_and_csg cid, csg
+
+#-----------------------------------------------------------------------------------------------------------
+MKNCR.normalize_to_xncr = ( glyph ) ->
+  throw new Error "do we need this method?"
+  cid = @as_cid glyph
+  csg = if ( @as_rsg glyph ) is 'u-pua' then 'jzr' else @as_csg glyph
+  return @chr_from_cid_and_csg cid, csg
+
+#-----------------------------------------------------------------------------------------------------------
+MKNCR.normalize_to_pua = ( glyph ) ->
+  throw new Error "do we need this method?"
+  cid = @as_cid glyph
+  csg = @as_csg glyph
+  csg = 'u' if csg is 'jzr'
+  return @chr_from_cid_and_csg cid, csg
+
+
+#===========================================================================================================
+# NEW DATA
 #-----------------------------------------------------------------------------------------------------------
 do =>
   #.........................................................................................................

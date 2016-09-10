@@ -259,7 +259,7 @@ populate_isl_with_sims = ( S, handler ) ->
   return null
 
 #-----------------------------------------------------------------------------------------------------------
-block_style_as_tex = ( block_style ) -> "\\#{block_style}"
+block_style_as_tex = ( block_style ) -> "\\#{block_style}{}"
 
 #-----------------------------------------------------------------------------------------------------------
 glyph_style_as_tex = ( glyph, glyph_style ) ->

@@ -187,6 +187,7 @@ populate_isl_with_tex_formats = ( S, handler ) ->
   mkts_options              = require S.paths.mkts_options
   tex_command_by_rsgs       = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   glyph_styles              = mkts_options[ 'tex' ][ 'glyph-styles'        ]
+  cjk_rsgs                  = mkts_options[ 'tex' ][ 'cjk-rsgs'            ]
   #.........................................................................................................
   fallback_command          = block_style_as_tex tex_command_by_rsgs[ 'fallback' ] ? 'mktsRsgFb'
   S.collector.push { lo: 0x000000, hi: 0x10ffff, tex: { block: fallback_command, }, }
@@ -207,6 +208,12 @@ populate_isl_with_tex_formats = ( S, handler ) ->
     cid             = MKNCR.as_cid glyph
     glyph_style_tex = glyph_style_as_tex glyph, glyph_style
     S.collector.push { lo: cid, hi: cid, tex: { codepoint: glyph_style_tex, }, }
+  #.........................................................................................................
+  for rsg in cjk_rsgs
+    for entry in ISL.find_entries u, 'rsg', rsg
+      ### Note: must push new entries to collector, cannot recycle existing ones here ###
+      { lo, hi, }  = entry
+      S.collector.push { lo, hi, tag: [ 'cjk', ], }
   #.........................................................................................................
   handler null, S
 

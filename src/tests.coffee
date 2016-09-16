@@ -128,15 +128,16 @@ u                         = MKNCR.unicode_isl
   # text = '釒'
   # text = '龵⿸釒金𤴔丨亅㐅乂'
   probes_and_matchers = [
-    ["龵",{"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk","tex":{"block":"\\cn","codepoint":"{\\tfRaise{-0.1}\\cnxBabel{}龵}"}}]
-    ["⿸",{"tag":["assigned","cjk","idl"],"rsg":"u-cjk-idc","tex":{"codepoint":"{\\tfRaise{-0.2}\\cnxJzr{}}"}}]
-    ["釒",{"tag":["assigned","cjk","ideograph","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk","sim/target/components":["金"],"tex":{"block":"\\cn","codepoint":"{\\tfPush{0.4}釒}"}}]
-    ["金",{"tag":["assigned","cjk","ideograph","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/global":["金","⾦"],"sim/source/components":["釒"],"tex":{"block":"\\cn"}}]
-    ["𤴔",{"tag":["assigned","cjk","ideograph","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk-xb","sim/source/global":["⺪"],"tex":{"block":"\\cnxb","codepoint":"{\\cnxBabel{}𤴔}"}}]
-    ["丨",{"tag":["assigned","cjk","ideograph","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-source","sim/is-target","sim/has-source/components/search","sim/is-target/components/search","sim/components/search"],"rsg":"u-cjk","sim/source/global":["〡","⼁","㇑"],"sim/source/components/search":["亅"],"tex":{"block":"\\cn"}}]
-    ["亅",{"tag":["assigned","cjk","ideograph","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-target","sim/is-source","sim/has-target/components/search","sim/is-source/components/search","sim/components/search"],"rsg":"u-cjk","sim/source/global":["⼅","㇚"],"sim/target/components/search":["丨"],"tex":{"block":"\\cn"}}]
-    ["㐅",{"tag":["assigned","cjk","ideograph","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk-xa","sim/source/global":["〤"],"sim/target/components":["乂"],"tex":{"block":"\\cnxa"}}]
-    ["乂",{"tag":["assigned","cjk","ideograph","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/components":["㐅","乄"],"tex":{"block":"\\cn"}}]
+    # ["龵",{"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk","tex":{"block":"\\cn{}","codepoint":"{\\tfRaise{-0.1}\\cnxBabel{}龵}"}}]
+    ["？",{"tag":["assigned","cjk"],"rsg":"u-halfull","tex":{"block":"\\cn{}"}}]
+    # ["⿸",{"tag":["assigned","cjk","idl"],"rsg":"u-cjk-idc","tex":{"block":"\\mktsRsgFb{}","codepoint":"{\\tfRaise{-0.2}\\cnxJzr{}}"}}]
+    # ["釒",{"tag":["assigned","cjk","ideograph","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk","sim/target/components":["金"],"tex":{"block":"\\cn{}","codepoint":"{\\tfPush{0.4}釒}"}}]
+    # ["金",{"tag":["assigned","cjk","ideograph","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/global":["金","⾦"],"sim/source/components":["釒"],"tex":{"block":"\\cn{}"}}]
+    # ["𤴔",{"tag":["assigned","cjk","ideograph","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk-xb","sim/source/global":["⺪"],"tex":{"block":"\\cnxb{}","codepoint":"{\\cnxBabel{}𤴔}"}}]
+    # ["丨",{"tag":["assigned","cjk","ideograph","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-source","sim/is-target","sim/has-source/components/search","sim/is-target/components/search","sim/components/search"],"rsg":"u-cjk","sim/source/global":["〡","⼁","㇑"],"sim/source/components/search":["亅"],"tex":{"block":"\\cn{}"}}]
+    # ["亅",{"tag":["assigned","cjk","ideograph","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-target","sim/is-source","sim/has-target/components/search","sim/is-source/components/search","sim/components/search"],"rsg":"u-cjk","sim/source/global":["⼅","㇚"],"sim/target/components/search":["丨"],"tex":{"block":"\\cn{}"}}]
+    # ["㐅",{"tag":["assigned","cjk","ideograph","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk-xa","sim/source/global":["〤"],"sim/target/components":["乂"],"tex":{"block":"\\cnxa{}"}}]
+    # ["乂",{"tag":["assigned","cjk","ideograph","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/components":["㐅","乄"],"tex":{"block":"\\cn{}"}}]
     ]
   for [ probe, matcher, ] in probes_and_matchers
     description = ISL.aggregate u, probe, recipe
@@ -144,7 +145,7 @@ u                         = MKNCR.unicode_isl
     # help '28107', matcher
     # warn '28107', description
     # debug '40223', JSON.stringify [ probe, description, ]; continue
-    info probe
+    # info probe
     urge '  tag:', ( description[ 'tag' ] ? [ '-/-' ] ).join ', '
     urge '  rsg:', description[ 'rsg' ]
     for sim_tag in sim_tags
@@ -187,7 +188,7 @@ unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
   include = [
     # "demo"
-    "aggregate"
+    # "aggregate"
     "SIMs, TeX formats"
     ]
   @_prune()

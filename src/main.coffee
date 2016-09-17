@@ -128,19 +128,28 @@ get_file_time = ( path, allow_missing = no ) ->
   return +stats.mtime
 
 #-----------------------------------------------------------------------------------------------------------
-populate_isl = ( handler ) ->
-  S =
-    paths:
-      cache:                PATH.resolve __dirname, '../data/isl-entries.json'
-      mkts_options:         PATH.resolve __dirname, '../../mingkwai-typesetter/options.js'
-      jizura_datasources:   PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
-  S.paths.strokeorders = PATH.resolve S.paths.jizura_datasources, 'shape/shape-strokeorder-zhaziwubifa.txt'
-  #.........................................................................................................
+new_state = ->
+  R                          = {}
+  R.paths                    = {}
+  R.paths.cache              = PATH.resolve __dirname, '../data/isl-entries.json'
+  R.paths.mkts_options       = PATH.resolve __dirname, '../../mingkwai-typesetter/options.js'
+  R.paths.jizura_datasources = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
+  R.paths.sims               = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
+  return R
+
+#-----------------------------------------------------------------------------------------------------------
+sim_cache_is_out_of_date = ( S = null) ->
+  S                  ?= new_state()
   source_time         = -Infinity
   source_time         = Math.max source_time, get_file_time S.paths.mkts_options
-  source_time         = Math.max source_time, get_file_time S.paths.strokeorders
+  source_time         = Math.max source_time, get_file_time S.paths.sims
   cache_time          = get_file_time S.paths.cache, true
-  must_rewrite_cache  = cache_time < source_time
+  return cache_time < source_time
+
+#-----------------------------------------------------------------------------------------------------------
+populate_isl = ( handler ) ->
+  S                   = new_state()
+  must_rewrite_cache  = sim_cache_is_out_of_date S
   #.........................................................................................................
   if must_rewrite_cache
     if module.parent? and not handler?
@@ -227,6 +236,7 @@ populate_isl_with_extra_data = ( S, handler ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 populate_isl_with_sims = ( S, handler ) ->
+  debug '33241', 'populate_isl_with_sims'
   #.........................................................................................................
   $add_intervals = =>
     return $ ( record ) =>
@@ -254,9 +264,9 @@ populate_isl_with_sims = ( S, handler ) ->
       return null
   #.........................................................................................................
   SIMS            = require '../../jizura-db-feeder/lib/feed-sims'
-  S1              = {}
+  JZRDBF_U        = require '../../jizura-db-feeder/lib/utilities'
+  S1              = JZRDBF_U.new_state()
   S1.db           = null
-  S1.source_home  = S.paths.jizura_datasources
   input           = SIMS.new_sim_readstream S1, filter: yes
   #.........................................................................................................
   input

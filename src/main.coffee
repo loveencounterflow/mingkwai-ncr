@@ -132,7 +132,7 @@ new_state = ->
   R                          = {}
   R.paths                    = {}
   R.paths.cache              = PATH.resolve __dirname, '../data/isl-entries.json'
-  R.paths.mkts_options       = PATH.resolve __dirname, '../../mingkwai-typesetter/options.js'
+  R.paths.mkts_options       = PATH.resolve __dirname, '../../mingkwai-typesetter/lib/options.js'
   R.paths.jizura_datasources = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
   R.paths.sims               = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
   return R
@@ -160,8 +160,9 @@ populate_isl = ( handler ) ->
       urge "run the command"
       urge CND.white "node #{PATH.relative process.cwd(), __filename}"
       urge "to rebuild #{cache_path}"
-      throw new Error "cache #{S.paths.cache} out of date"
-    rewrite_cache S, handler
+      # throw new Error "cache #{S.paths.cache} out of date"
+    else
+      rewrite_cache S, handler
   else
     handler ?= ( error ) -> throw error if error?
     read_cache S, handler

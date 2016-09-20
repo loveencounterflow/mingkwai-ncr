@@ -83,6 +83,7 @@ do =>
     fields:
       tag:  'tag'
       rsg:  'assign'
+      sim:  'list'
       # sim:  ( values, context ) ->
       #   ### TAINT should be a standard reducer ###
       #   debug '7701', values
@@ -209,6 +210,14 @@ populate_isl_with_extra_data = ( S, handler ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 populate_isl_with_sims = ( S, handler ) ->
+  ###
+    target glyph          source glyph
+    favored               disfavored
+    `sim/has-source`
+    `sim/is-target`
+                          `sim/is-source`
+                          `sim/has-target`
+  ###
   #.........................................................................................................
   $add_intervals = =>
     return $ ( record ) =>
@@ -221,11 +230,11 @@ populate_isl_with_sims = ( S, handler ) ->
       mtag              = "sim/target/#{otag}"
       ctag              = "sim sim/has-target sim/is-source sim/has-target/#{otag} sim/is-source/#{otag} sim/#{otag}"
       # sim               = { "#{otag}": { target: target_glyph, }, }
-      S.collector.push { lo: source_cid, hi: source_cid, "#{mtag}": target_glyph, tag: ctag, }
+      S.collector.push { lo: source_cid, hi: source_cid, sim: mtag, "#{mtag}": target_glyph, tag: ctag, }
       mtag              = "sim/source/#{otag}"
       ctag              = "sim sim/has-source sim/is-target sim/has-source/#{otag} sim/is-target/#{otag} sim/#{otag}"
       # sim               = { "#{otag}": { source: source_glyph, }, }
-      S.collector.push { lo: target_cid, hi: target_cid, "#{mtag}": source_glyph, tag: ctag, }
+      S.collector.push { lo: target_cid, hi: target_cid, sim: mtag, "#{mtag}": source_glyph, tag: ctag, }
       return null
   #.........................................................................................................
   $collect_tags = =>

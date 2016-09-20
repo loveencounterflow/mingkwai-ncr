@@ -1,6 +1,6 @@
 {
   "name": "mingkwai-ncr",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A derivative of https://github.com/loveencounterflow/ncr with extra data for CJK character processing and typesetting",
   "main": "lib/main.js",
   "scripts": {

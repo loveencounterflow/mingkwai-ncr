@@ -235,11 +235,11 @@ populate_isl_with_sims = ( S, handler ) ->
       else debug '3334', tags
       return null
   #.........................................................................................................
-  SIMS            = require '../../jizura-db-feeder/lib/feed-sims'
-  JZRDBF_U        = require '../../jizura-db-feeder/lib/utilities'
-  S1              = JZRDBF_U.new_state()
-  S1.db           = null
-  input           = SIMS.new_sim_readstream S1, filter: yes
+  SIMS            = require '../../mojikura/lib/readers/read-sims'
+  # JZRDBF_U        = require '../../jizura-db-feeder/lib/utilities'
+  # S1              = JZRDBF_U.new_state()
+  # S1.db           = null
+  input           = SIMS.new_readstream null, gaiji: no
   #.........................................................................................................
   input
     .pipe $add_intervals()
@@ -292,48 +292,5 @@ main = ->
   return read_cache() if module.parent?
   rewrite_cache()
 main()
-
-  # S                   = new_state()
-  # must_rewrite_cache  = no
-  # #.........................................................................................................
-  # if must_rewrite_cache
-  #   if module.parent? and not handler?
-  #     cache_path = PATH.relative process.cwd(), S.paths.cache
-  #     warn "cache file"
-  #     warn "#{cache_path}"
-  #     warn "is out of date"
-  #     urge "run the command"
-  #     urge CND.white "node #{PATH.relative process.cwd(), __filename}"
-  #     urge "to rebuild #{cache_path}"
-  #     # throw new Error "cache #{S.paths.cache} out of date"
-  #   else
-  #     rewrite_cache S, handler
-  # else
-  #   handler ?= ( error ) -> throw error if error?
-  #   read_cache S, handler
-  # #.........................................................................................................
-  # return null
-
-
-
-# ############################################################################################################
-# if module.parent?
-#   ### If this module is `require`d from another module, run `populate_isl` *without* callback. This will
-#   succeed if cache is present and up to date; it will fail with a helpful message otherwise. ###
-#   populate_isl()
-#   # populate_isl ( error, S ) ->
-#   #   throw error if error?
-#   #   return null
-# else
-#   ### If this module is run as a script, rebuild the cache when necessary: ###
-#   populate_isl ( error, S ) ->
-#     throw error if error?
-#     help "#{S.paths.cache}"
-#     help "is up to date"
-#     return null
-
-
-
-
 
 

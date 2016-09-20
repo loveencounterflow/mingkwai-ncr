@@ -118,67 +118,39 @@ do =>
   #.........................................................................................................
   return null
 
-#-----------------------------------------------------------------------------------------------------------
-get_file_time = ( path, allow_missing = no ) ->
-  try
-    stats = FS.statSync path
-  catch error
-    throw error unless allow_missing and error[ 'code' ] is 'ENOENT'
-    return -Infinity
-  return +stats.mtime
 
+#===========================================================================================================
+#
 #-----------------------------------------------------------------------------------------------------------
 new_state = ->
-  R                          = {}
-  R.paths                    = {}
-  R.paths.cache              = PATH.resolve __dirname, '../data/isl-entries.json'
-  R.paths.mkts_options       = PATH.resolve __dirname, '../../mingkwai-typesetter/lib/options.js'
-  R.paths.jizura_datasources = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
-  R.paths.sims               = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
+  R                           = {}
+  R.paths                     = {}
+  R.paths.cache               = PATH.resolve __dirname, '../data/isl-entries.json'
+  R.paths.mkts_options        = PATH.resolve __dirname, '../../mingkwai-typesetter/lib/options.js'
+  R.paths.jizura_datasources  = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
+  R.paths.sims                = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
+  R.collector                 = []
   return R
 
-#-----------------------------------------------------------------------------------------------------------
-sim_cache_is_out_of_date = ( S = null) ->
-  S                  ?= new_state()
-  source_time         = -Infinity
-  source_time         = Math.max source_time, get_file_time S.paths.mkts_options
-  source_time         = Math.max source_time, get_file_time S.paths.sims
-  cache_time          = get_file_time S.paths.cache, true
-  return cache_time < source_time
 
+#===========================================================================================================
+#
 #-----------------------------------------------------------------------------------------------------------
-populate_isl = ( handler ) ->
-  S                   = new_state()
-  must_rewrite_cache  = sim_cache_is_out_of_date S
-  #.........................................................................................................
-  if must_rewrite_cache
-    if module.parent? and not handler?
-      cache_path = PATH.relative process.cwd(), S.paths.cache
-      warn "cache file"
-      warn "#{cache_path}"
-      warn "is out of date"
-      urge "run the command"
-      urge CND.white "node #{PATH.relative process.cwd(), __filename}"
-      urge "to rebuild #{cache_path}"
-      # throw new Error "cache #{S.paths.cache} out of date"
-    else
-      rewrite_cache S, handler
-  else
-    handler ?= ( error ) -> throw error if error?
-    read_cache S, handler
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-read_cache = ( S, handler ) ->
+read_cache = ( handler = null ) ->
+  help "reading cache"
+  warn "cache may be stale; check with mingkwai file-date-checker"
+  S = new_state()
   ISL.add u, entry for entry in require S.paths.cache
   handler null, S if handler?
   return null
 
+
+#===========================================================================================================
+#
 #-----------------------------------------------------------------------------------------------------------
-rewrite_cache = ( S, handler ) ->
+rewrite_cache = ( handler = null ) ->
   help "rewriting cache"
-  S.collector = []
+  S = new_state()
   #.........................................................................................................
   step ( resume ) ->
     yield populate_isl_with_tex_formats  S, resume
@@ -237,7 +209,6 @@ populate_isl_with_extra_data = ( S, handler ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 populate_isl_with_sims = ( S, handler ) ->
-  debug '33241', 'populate_isl_with_sims'
   #.........................................................................................................
   $add_intervals = =>
     return $ ( record ) =>
@@ -314,22 +285,52 @@ glyph_style_as_tex = ( glyph, glyph_style ) ->
   R = R.join ''
   return R
 
+#===========================================================================================================
+#
+#-----------------------------------------------------------------------------------------------------------
+main = ->
+  return read_cache() if module.parent?
+  rewrite_cache()
+main()
 
-############################################################################################################
-if module.parent?
-  ### If this module is `require`d from another module, run `populate_isl` *without* callback. This will
-  succeed if cache is present and up to date; it will fail with a helpful message otherwise. ###
-  populate_isl()
-  # populate_isl ( error, S ) ->
-  #   throw error if error?
-  #   return null
-else
-  ### If this module is run as a script, rebuild the cache when necessary: ###
-  populate_isl ( error, S ) ->
-    throw error if error?
-    help "#{S.paths.cache}"
-    help "is up to date"
-    return null
+  # S                   = new_state()
+  # must_rewrite_cache  = no
+  # #.........................................................................................................
+  # if must_rewrite_cache
+  #   if module.parent? and not handler?
+  #     cache_path = PATH.relative process.cwd(), S.paths.cache
+  #     warn "cache file"
+  #     warn "#{cache_path}"
+  #     warn "is out of date"
+  #     urge "run the command"
+  #     urge CND.white "node #{PATH.relative process.cwd(), __filename}"
+  #     urge "to rebuild #{cache_path}"
+  #     # throw new Error "cache #{S.paths.cache} out of date"
+  #   else
+  #     rewrite_cache S, handler
+  # else
+  #   handler ?= ( error ) -> throw error if error?
+  #   read_cache S, handler
+  # #.........................................................................................................
+  # return null
+
+
+
+# ############################################################################################################
+# if module.parent?
+#   ### If this module is `require`d from another module, run `populate_isl` *without* callback. This will
+#   succeed if cache is present and up to date; it will fail with a helpful message otherwise. ###
+#   populate_isl()
+#   # populate_isl ( error, S ) ->
+#   #   throw error if error?
+#   #   return null
+# else
+#   ### If this module is run as a script, rebuild the cache when necessary: ###
+#   populate_isl ( error, S ) ->
+#     throw error if error?
+#     help "#{S.paths.cache}"
+#     help "is up to date"
+#     return null
 
 
 

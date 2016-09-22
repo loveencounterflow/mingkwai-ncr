@@ -157,6 +157,26 @@ u                         = MKNCR.unicode_isl
   return null
 
 #-----------------------------------------------------------------------------------------------------------
+@[ "descriptions (2)" ] = ( T ) ->
+  probes_and_matchers = [
+    ["⿲",["u",["assigned","cjk","idl"]]]
+    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"]]]
+    ["&#x1234;",["u",["assigned"]]]
+    ["&#xe100;",["u",["assigned","pua","cjk"]]]
+    ["&jzr#xe100;",["jzr",["assigned","cjk"]]]
+    ["&morohashi#x1234;",["morohashi",["assigned","cjk"]]]
+    ]
+  for [ probe, matcher, ] in probes_and_matchers
+    description     = MKNCR.describe probe
+    # urge JSON.stringify [ probe, description, ]
+    { csg, tag, }   = description
+    result          = [ csg, tag, ]
+    urge JSON.stringify [ probe, result, ]
+    T.eq result, matcher
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
 demo_2 = ->
   #.........................................................................................................
   # tag = 'sim/is-target/global'
@@ -190,6 +210,7 @@ unless module.parent?
     # "demo"
     "aggregate"
     "SIMs, TeX formats"
+    "descriptions (2)"
     ]
   @_prune()
   @_main()

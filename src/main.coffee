@@ -25,6 +25,7 @@ module.exports            = MKNCR = NCR._copy_library 'xncr'
 ISL                       = MKNCR._ISL
 u                         = MKNCR.unicode_isl
 
+
 #===========================================================================================================
 # NEW API METHODS
 #-----------------------------------------------------------------------------------------------------------
@@ -109,11 +110,24 @@ do =>
     cache = {}
     MKNCR.describe = ( P... ) ->
       ### TAINT what about gaiji? ###
-      id          = JSON.stringify P
+      id                    = JSON.stringify P
       return R if ( R = cache[ id ] )?
-      A           = @analyze P...
-      R           = aggregate A[ 'cid' ]
-      R[ key ]    = value for key, value of A
+      #.....................................................................................................
+      nfo                   = @analyze P...
+      { csg, rsg, }         = nfo
+      #.....................................................................................................
+      if csg is 'u' then  R = aggregate nfo[ 'cid' ]
+      else                R = {}
+      #.....................................................................................................
+      R[ key ]              = value for key, value of nfo
+      #.....................................................................................................
+      ### Instead of doing proper multi-characterset treatment,
+      consider all Private Use Area CPs and all non-Unicode CPs as being CJK: ###
+      if ( csg is 'u' and rsg is 'u-pua' ) or ( csg isnt 'u' )
+        tag = R[ 'tag' ] ?= []
+        tag.push 'assigned' unless 'assigned' in tag
+        tag.push 'cjk'      unless 'cjk'      in tag
+      #.....................................................................................................
       cache[ id ] = R
       return R
   #.........................................................................................................

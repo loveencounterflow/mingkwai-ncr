@@ -40,6 +40,12 @@ MKNCR.jzr_as_uchr = ( glyph ) ->
   return glyph
 
 #-----------------------------------------------------------------------------------------------------------
+MKNCR.jzr_as_xncr = ( glyph ) ->
+  nfo = @analyze glyph
+  return glyph unless ( nfo.rsg is 'u-pua' ) or ( nfo.csg is 'jzr' )
+  return @as_chr nfo.cid, { csg: 'jzr', }
+
+#-----------------------------------------------------------------------------------------------------------
 MKNCR.normalize = ( glyph ) ->
   throw new Error "XNCHR.normalize is deprecated"
   rsg = @as_rsg glyph

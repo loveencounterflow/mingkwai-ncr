@@ -177,6 +177,19 @@ u                         = MKNCR.unicode_isl
   return null
 
 #-----------------------------------------------------------------------------------------------------------
+@[ "jzr_as_xncr" ] = ( T ) ->
+  glyph       = "&jzr#xe234;"
+  glyph_uchr  = MKNCR.jzr_as_uchr glyph
+  glyph_r1    = MKNCR.jzr_as_xncr glyph
+  glyph_r2    = MKNCR.jzr_as_xncr glyph_uchr
+  # debug '32900', [ glyph, glyph_uchr, glyph_r1, glyph_r2, ]
+  # debug '32900', MKNCR.jzr_as_xncr 'x'
+  T.eq glyph_uchr, ''
+  T.eq glyph_r1, '&jzr#xe234;'
+  T.eq glyph_r2, '&jzr#xe234;'
+  T.eq ( MKNCR.jzr_as_xncr 'x' ), 'x'
+
+#-----------------------------------------------------------------------------------------------------------
 demo_2 = ->
   #.........................................................................................................
   # tag = 'sim/is-target/global'
@@ -211,6 +224,7 @@ unless module.parent?
     "aggregate"
     "SIMs, TeX formats"
     "descriptions (2)"
+    "jzr_as_xncr"
     ]
   @_prune()
   @_main()

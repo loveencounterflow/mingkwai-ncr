@@ -159,19 +159,20 @@ u                         = MKNCR.unicode_isl
 #-----------------------------------------------------------------------------------------------------------
 @[ "descriptions (2)" ] = ( T ) ->
   probes_and_matchers = [
-    ["⿲",["u",["assigned","cjk","idl"]]]
-    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"]]]
-    ["&#x1234;",["u",["assigned"]]]
-    ["&#xe100;",["u",["assigned","pua","cjk"]]]
-    ["&jzr#xe100;",["jzr",["assigned","cjk"]]]
-    ["&morohashi#x1234;",["morohashi",["assigned","cjk"]]]
+    ["⿲",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}"}]]
+    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],{"block":"\\cn{}"}]]
+    ["&#x1234;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
+    ["&morohashi#x1234;",["morohashi",["assigned","cjk"],undefined]]
+    ["&#xe100;",["u",["assigned","pua","cjk"],{"block":"\\cnjzr{}"}]]
+    ["&jzr#xe100;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
+    ["&jzr#xe19f;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
     ]
   for [ probe, matcher, ] in probes_and_matchers
-    description     = MKNCR.describe probe
-    # urge JSON.stringify [ probe, description, ]
-    { csg, tag, }   = description
-    result          = [ csg, tag, ]
+    description         = MKNCR.describe probe
+    { csg, tag, tex, }  = description
+    result              = [ csg, tag, tex, ]
     urge JSON.stringify [ probe, result, ]
+    # urge JSON.stringify [ probe, description, ]
     T.eq result, matcher
   #.........................................................................................................
   return null
@@ -223,8 +224,8 @@ unless module.parent?
     # "demo"
     "aggregate"
     "SIMs, TeX formats"
-    "descriptions (2)"
     "jzr_as_xncr"
+    "descriptions (2)"
     ]
   @_prune()
   @_main()

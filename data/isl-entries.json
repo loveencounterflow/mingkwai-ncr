@@ -13160,20 +13160,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
-    "lo": 57809,
-    "hi": 57809,
-    "sim": "sim/target/components",
-    "sim/target/components": "丷",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components sim/is-source/components sim/components"
-  },
-  {
-    "lo": 20023,
-    "hi": 20023,
-    "sim": "sim/source/components",
-    "sim/source/components": "",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components sim/is-target/components sim/components"
-  },
-  {
     "lo": 57618,
     "hi": 57618,
     "sim": "sim/target/global",

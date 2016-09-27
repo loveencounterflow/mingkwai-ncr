@@ -133,6 +133,8 @@ do =>
         tag = R[ 'tag' ] ?= []
         tag.push 'assigned' unless 'assigned' in tag
         tag.push 'cjk'      unless 'cjk'      in tag
+        if csg is 'jzr' and not R[ 'tex' ]?
+          R[ 'tex' ] = ( @describe R[ 'cid' ] )[ 'tex' ]
       #.....................................................................................................
       cache[ id ] = R
       return R

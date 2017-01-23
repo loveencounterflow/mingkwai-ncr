@@ -160,11 +160,12 @@ u                         = MKNCR.unicode_isl
 @[ "descriptions (2)" ] = ( T ) ->
   probes_and_matchers = [
     ["⿲",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}"}]]
-    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/sim/global","sim/is-target/sim/global","sim/sim/global"],{"block":"\\cn{}"}]]
+    ["⿱",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}","codepoint":"{\\cnxJzr{}}"}]]
+    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],{"block":"\\cn{}"}]]
     ["&#x1233;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1234;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1235;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
-    ["&morohashi#x1234;",["morohashi",["assigned","cjk"],null]]
+    ["&morohashi#x1234;",["morohashi",["assigned","cjk"],undefined]]
     ["&#xe100;",["u",["assigned","pua","cjk"],{"block":"\\cnjzr{}"}]]
     ["&jzr#xe100;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
     ["&jzr#xe19f;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
@@ -175,8 +176,36 @@ u                         = MKNCR.unicode_isl
     result              = [ csg, tag, tex, ]
     urge JSON.stringify [ probe, result, ]
     # urge JSON.stringify [ probe, description, ]
-    # T.eq result, matcher
+    T.eq result, matcher
   #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "MojiKura get_set_of_CJK_ideograph_cids includes u-cjk-cmpi2" ] = ( T ) ->
+  probes_and_matchers = [
+    [ 'u-cjk-cmpi2/2f801',  '丸', null, ]
+    [ 'u-cjk-cmpi1/f9ba',   '了', null, ]
+    [ 'u-cjk-rad1/2f08',    '⼈', null, ]
+    ]
+  #.........................................................................................................^
+  ### from `mojikura/src/utilities.coffee`: ###
+  L = {}
+  L._set_from_facet = ( key, value ) ->
+    R = new Set()
+    for { lo, hi, } in MKNCR._ISL.find_entries MKNCR.unicode_isl, key, value
+      R.add cid for cid in [ lo .. hi ]
+    return R
+  #.........................................................................................................^
+  ### from `mojikura/src/utilities.coffee`: ###
+  L.get_set_of_CJK_ideograph_cids = ->
+    return R if ( R = L.get_set_of_CJK_ideograph_cids._R )?
+    return L.get_set_of_CJK_ideograph_cids._R = L._set_from_facet 'tag', 'ideograph'
+  #.........................................................................................................^
+  cjk_cids = L.get_set_of_CJK_ideograph_cids()
+  for [ fncr, glyph, result, ] in probes_and_matchers
+    cid         = MKNCR.as_cid glyph
+    description = MKNCR.describe cid
+    debug ( cjk_cids.has cid ), JSON.stringify description
   return null
 
 #-----------------------------------------------------------------------------------------------------------
@@ -228,6 +257,7 @@ unless module.parent?
     "SIMs, TeX formats"
     "jzr_as_xncr"
     "descriptions (2)"
+    "MojiKura get_set_of_CJK_ideograph_cids includes u-cjk-cmpi2"
     ]
   @_prune()
   @_main()

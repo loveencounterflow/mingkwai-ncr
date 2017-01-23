@@ -15,9 +15,6 @@ warn                      = CND.get_logger 'warn',      badge
 help                      = CND.get_logger 'help',      badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
-D                         = require 'pipedreams'
-{ $
-  $async }                = D
 { step }                  = require 'coffeenode-suspend'
 #...........................................................................................................
 NCR                       = require 'ncr'
@@ -240,15 +237,23 @@ populate_isl_with_sims = ( S, handler ) ->
                           `sim/is-source`
                           `sim/has-target`
   ###
+  PS                        = require 'pipestreams'
+  { $
+    $async }                = PS
   #.........................................................................................................
   $add_intervals = =>
-    return $ ( record ) =>
-      { source_glyph
-        target_glyph  } = record
-      # debug '3334', record
-      source_cid        = MKNCR.as_cid record[ 'source_glyph' ]
-      target_cid        = MKNCR.as_cid record[ 'target_glyph' ]
-      otag              = record[ 'tag' ]
+    return $ 'null', ( phrase, send ) =>
+      unless phrase?
+        return handler null, S
+      send phrase
+      [ target_glyph
+        otag
+        source_glyph ]  = phrase
+      return unless ( MKNCR.is_inner_glyph target_glyph )
+      return unless ( MKNCR.is_inner_glyph source_glyph )
+      source_cid        = MKNCR.as_cid source_glyph
+      target_cid        = MKNCR.as_cid target_glyph
+      otag              = otag.replace /^sim\//, ''
       mtag              = "sim/target/#{otag}"
       ctag              = "sim sim/has-target sim/is-source sim/has-target/#{otag} sim/is-source/#{otag} sim/#{otag}"
       # sim               = { "#{otag}": { target: target_glyph, }, }
@@ -260,21 +265,25 @@ populate_isl_with_sims = ( S, handler ) ->
       return null
   #.........................................................................................................
   $collect_tags = =>
-    tags = new Set
+    tags = new Set()
     return $ 'null', ( record ) =>
       if record? then tags.add record[ 'tag' ]
       else debug '3334', tags
       return null
   #.........................................................................................................
-  SIMS            = require '../../mojikura/lib/readers/read-sims'
+  SIMS            = require '../../mojikura/lib/read-sims'
   # JZRDBF_U        = require '../../jizura-db-feeder/lib/utilities'
   # S1              = JZRDBF_U.new_state()
   # S1.db           = null
-  input           = SIMS.new_readstream null, gaiji: no
+  source          = SIMS.new_readstream()
+  # source          = SIMS.new_readstream null, gaiji: no
   #.........................................................................................................
-  input
-    .pipe $add_intervals()
-    .pipe $ 'finish', -> handler null, S
+  pipeline        = []
+  pipeline.push source
+  pipeline.push $add_intervals()
+  # pipeline.push PS.$show()
+  pipeline.push PS.$drain()
+  PS.pull pipeline...
   #.........................................................................................................
   return null
 

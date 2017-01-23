@@ -497,6 +497,13 @@
     }
   },
   {
+    "lo": 9655,
+    "hi": 9655,
+    "tex": {
+      "codepoint": "{\\mktsFontfileCwtexqheibold{}▷}"
+    }
+  },
+  {
     "lo": 22231,
     "hi": 22231,
     "tex": {
@@ -11452,34 +11459,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 22231,
-    "hi": 22231,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "口",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 21475,
-    "hi": 21475,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "囗",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 12348,
-    "hi": 12348,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "口",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 21475,
-    "hi": 21475,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "〼",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12053,
     "hi": 12053,
     "sim": "sim/target/global",
@@ -11562,48 +11541,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "⺙",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 25909,
-    "hi": 25909,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "夊",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 22794,
-    "hi": 22794,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "攵",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 22786,
-    "hi": 22786,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "夊",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 22794,
-    "hi": 22794,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "夂",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 12329,
-    "hi": 12329,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "夊",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 22794,
-    "hi": 22794,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "〩",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 12056,
@@ -11758,20 +11695,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "㇚",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 20101,
-    "hi": 20101,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "丨",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20008,
-    "hi": 20008,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "亅",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 12324,
@@ -12068,20 +11991,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 19973,
-    "hi": 19973,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "丁",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 19969,
-    "hi": 19969,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "丅",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12035,
     "hi": 12035,
     "sim": "sim/target/global",
@@ -12192,20 +12101,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 23577,
-    "hi": 23577,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "尚",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 23578,
-    "hi": 23578,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "尙",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 12103,
@@ -12320,34 +12215,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/components sim/is-target/components sim/components"
   },
   {
-    "lo": 20996,
-    "hi": 20996,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "刃",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20995,
-    "hi": 20995,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "刄",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 20997,
-    "hi": 20997,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "刃",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20995,
-    "hi": 20995,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "刅",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12041,
     "hi": 12041,
     "sim": "sim/target/global",
@@ -12432,34 +12299,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 20015,
-    "hi": 20015,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "丰",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20016,
-    "hi": 20016,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "丯",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 57699,
-    "hi": 57699,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "丰",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20016,
-    "hi": 20016,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12073,
     "hi": 12073,
     "sim": "sim/target/global",
@@ -12528,20 +12367,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "⼫",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 138275,
-    "hi": 138275,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "尸",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 23608,
-    "hi": 23608,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "𡰣",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 12080,
@@ -12642,20 +12467,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 12179,
-    "hi": 12179,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "角",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 35282,
-    "hi": 35282,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "⾓",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12003,
     "hi": 12003,
     "sim": "sim/target/global",
@@ -12726,20 +12537,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 131275,
-    "hi": 131275,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "𡿨",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 139240,
-    "hi": 139240,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "𠃋",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 12742,
     "hi": 12742,
     "sim": "sim/target/global",
@@ -12768,20 +12565,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 131277,
-    "hi": 131277,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "𠃌",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 131276,
-    "hi": 131276,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "𠃍",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 11906,
     "hi": 11906,
     "sim": "sim/target/global",
@@ -12808,20 +12591,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "㇖",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 12743,
-    "hi": 12743,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "乛",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20059,
-    "hi": 20059,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "㇇",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 12043,
@@ -12894,20 +12663,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
   },
   {
-    "lo": 11948,
-    "hi": 11948,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "礻",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 31035,
-    "hi": 31035,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "⺬",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 57695,
     "hi": 57695,
     "sim": "sim/target/global",
@@ -12920,20 +12675,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 12144,
-    "hi": 12144,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "示",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 31034,
-    "hi": 31034,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "⽰",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 11913,
@@ -13006,20 +12747,6 @@
     "tag": "sim sim/has-source sim/is-target sim/has-source/components sim/is-target/components sim/components"
   },
   {
-    "lo": 21567,
-    "hi": 21567,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "告",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 21578,
-    "hi": 21578,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "吿",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
     "lo": 144314,
     "hi": 144314,
     "sim": "sim/target/components",
@@ -13032,34 +12759,6 @@
     "sim": "sim/source/components",
     "sim/source/components": "𣎺",
     "tag": "sim sim/has-source sim/is-target sim/has-source/components sim/is-target/components sim/components"
-  },
-  {
-    "lo": 20839,
-    "hi": 20839,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "内",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20869,
-    "hi": 20869,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "內",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 132315,
-    "hi": 132315,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "亼",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 20156,
-    "hi": 20156,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "𠓛",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 11957,
@@ -13130,34 +12829,6 @@
     "sim": "sim/source/components",
     "sim/source/components": "𠆤",
     "tag": "sim sim/has-source sim/is-target sim/has-source/components sim/is-target/components sim/components"
-  },
-  {
-    "lo": 57612,
-    "hi": 57612,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "曲",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 26354,
-    "hi": 26354,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
-  },
-  {
-    "lo": 57831,
-    "hi": 57831,
-    "sim": "sim/target/components/search",
-    "sim/target/components/search": "",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/components/search sim/is-source/components/search sim/components/search"
-  },
-  {
-    "lo": 57832,
-    "hi": 57832,
-    "sim": "sim/source/components/search",
-    "sim/source/components/search": "",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/components/search sim/is-target/components/search sim/components/search"
   },
   {
     "lo": 57618,
@@ -13270,20 +12941,6 @@
     "sim": "sim/source/global",
     "sim/source/global": "䀹",
     "tag": "sim sim/has-source sim/is-target sim/has-source/global sim/is-target/global sim/global"
-  },
-  {
-    "lo": 131225,
-    "hi": 131225,
-    "sim": "sim/target/false-identity",
-    "sim/target/false-identity": "𠂖",
-    "tag": "sim sim/has-target sim/is-source sim/has-target/false-identity sim/is-source/false-identity sim/false-identity"
-  },
-  {
-    "lo": 131222,
-    "hi": 131222,
-    "sim": "sim/source/false-identity",
-    "sim/source/false-identity": "𠂙",
-    "tag": "sim sim/has-source sim/is-target sim/has-source/false-identity sim/is-target/false-identity sim/false-identity"
   },
   {
     "lo": 57728,

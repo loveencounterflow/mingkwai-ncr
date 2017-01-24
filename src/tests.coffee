@@ -146,6 +146,7 @@ u                         = MKNCR.unicode_isl
     # debug '40223', JSON.stringify [ probe, description, ]; continue
     T.eq description, matcher
     # info probe
+    ###
     urge '  tag:', ( description[ 'tag' ] ? [ '-/-' ] ).join ', '
     urge '  rsg:', description[ 'rsg' ]
     for sim_tag in sim_tags
@@ -153,6 +154,7 @@ u                         = MKNCR.unicode_isl
       urge "  #{sim_tag}:", value
     urge '  blk:', description[ 'tex' ]?[ 'block'     ] ? '-/-'
     urge '  cp: ', description[ 'tex' ]?[ 'codepoint' ] ? '-/-'
+    ###
   #.........................................................................................................
   return null
 
@@ -174,7 +176,7 @@ u                         = MKNCR.unicode_isl
     description         = MKNCR.describe probe
     { csg, tag, tex, }  = description
     result              = [ csg, tag, tex, ]
-    urge JSON.stringify [ probe, result, ]
+    # urge JSON.stringify [ probe, result, ]
     # urge JSON.stringify [ probe, description, ]
     T.eq result, matcher
   #.........................................................................................................
@@ -183,9 +185,29 @@ u                         = MKNCR.unicode_isl
 #-----------------------------------------------------------------------------------------------------------
 @[ "MojiKura get_set_of_CJK_ideograph_cids includes u-cjk-cmpi2" ] = ( T ) ->
   probes_and_matchers = [
-    [ 'u-cjk-cmpi2/2f801',  '丸', null, ]
-    [ 'u-cjk-cmpi1/f9ba',   '了', null, ]
-    [ 'u-cjk-rad1/2f08',    '⼈', null, ]
+    [ 'u-cjk-cmpi2/2f801',  '丸', [ 'cjk', 'ideograph', ], ] # mapped
+    [ 'u-cjk-cmpi1/f9ba',   '了', [ 'cjk', 'ideograph', ], ] # mapped
+    [ 'u-cjk-rad1/2f08',    '⼈', [ 'cjk', 'ideograph', ], ] # mapped
+    [ 'u-cjk/4e0d',         '不', [ 'cjk', 'ideograph', ], ] # mapped
+    [ 'u-cjk-cmpi1/f967',   '不', [ 'cjk', 'ideograph', ], ] # mapped
+    [ 'u-cjk-cmpi1/fa0e',   '﨎', [ 'cjk', 'ideograph', ], ] # original
+    [ 'u-hang-syl-ae00',    '글', [ 'cjk', 'korean', 'hangeul', ], ]
+    [ 'u-cjk-hira-3072',    'ひ', [ 'cjk', 'japanese', 'kana', 'hiragana', ], ]
+    [ 'u-cjk-sym/3001',     '、', [ 'cjk', 'punctuation',        ], ]
+    [ 'u-cjk-sym/3004',     '〄', [ 'cjk', 'symbol',             ], ]
+    [ 'u-cjk-sym/3005',     '々', [ 'cjk', 'ideograph',          ], ]
+    [ 'u-cjk-sym/3008',     '〈', [ 'cjk', 'punctuation',        ], ]
+    [ 'u-cjk-sym/3012',     '〒', [ 'cjk', 'symbol',             ], ]
+    [ 'u-cjk-sym/3013',     '〓', [ 'cjk', 'ideograph', 'geta',  ], ]
+    [ 'u-cjk-sym/3014',     '〔', [ 'cjk', 'punctuation',        ], ]
+    [ 'u-cjk-sym/3020',     '〠', [ 'cjk', 'symbol',             ], ]
+    [ 'u-cjk-sym/3021',     '〡', [ 'cjk', 'ideograph',          ], ]
+    [ 'u-cjk-sym/302a',     '〪', [ 'cjk', 'punctuation',        ], ]
+    [ 'u-cjk-sym/3031',     '〱', [ 'cjk', 'kana',               ], ]
+    [ 'u-cjk-sym/3036',     '〶', [ 'cjk', 'symbol',             ], ]
+    [ 'u-cjk-sym/3038',     '〸', [ 'cjk', 'ideograph',          ], ]
+    [ 'u-cjk-sym/303d',     '〽', [ 'cjk', 'symbol',             ], ]
+
     ]
   #.........................................................................................................^
   ### from `mojikura/src/utilities.coffee`: ###
@@ -201,11 +223,22 @@ u                         = MKNCR.unicode_isl
     return R if ( R = L.get_set_of_CJK_ideograph_cids._R )?
     return L.get_set_of_CJK_ideograph_cids._R = L._set_from_facet 'tag', 'ideograph'
   #.........................................................................................................^
+  ### TAINT should also check above methods include expected glyphs ###
   cjk_cids = L.get_set_of_CJK_ideograph_cids()
-  for [ fncr, glyph, result, ] in probes_and_matchers
-    cid         = MKNCR.as_cid glyph
-    description = MKNCR.describe cid
-    debug ( cjk_cids.has cid ), JSON.stringify description
+  for [ _, glyph, tags, ] in probes_and_matchers
+    cid             = MKNCR.as_cid glyph
+    description     = MKNCR.describe cid
+    { fncr, }       = description
+    glyph_tags      = description[ 'tag' ]
+    glyph_tags_txt  = glyph_tags.join ', '
+    for tag in tags
+      if tag in glyph_tags
+        T.ok true
+        help "#{fncr} #{glyph}   has tag #{tag}: #{glyph_tags_txt}"
+      else
+        urge "#{fncr} #{glyph} lacks tag #{tag}: #{glyph_tags_txt}"
+        T.fail "#{fncr} #{glyph}: lacks tag #{tag}"
+    # debug ( cjk_cids.has cid ), JSON.stringify description
   return null
 
 #-----------------------------------------------------------------------------------------------------------

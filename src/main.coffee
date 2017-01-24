@@ -147,8 +147,8 @@ new_state = ->
   R.paths                     = {}
   R.paths.cache               = PATH.resolve __dirname, '../data/isl-entries.json'
   R.paths.mkts_options        = PATH.resolve __dirname, '../../mingkwai-typesetter/lib/options.js'
-  R.paths.jizura_datasources  = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
-  R.paths.sims                = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
+  # R.paths.jizura_datasources  = PATH.resolve __dirname, '../../../jizura-datasources/data/flat-files/'
+  # R.paths.sims                = PATH.resolve R.paths.jizura_datasources, 'shape/shape-similarity-identity.txt'
   R.collector                 = []
   return R
 
@@ -173,9 +173,13 @@ rewrite_cache = ( handler = null ) ->
   S = new_state()
   #.........................................................................................................
   step ( resume ) ->
+    ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
+    yield setImmediate resume
+    debug '44455', 'rewrite_cache'
     yield populate_isl_with_tex_formats  S, resume
     yield populate_isl_with_sims         S, resume
     yield populate_isl_with_extra_data   S, resume
+    ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
     FS.writeFileSync S.paths.cache, JSON.stringify S.collector, null, '  '
     ISL.add u, entry for entry in S.collector
     #.......................................................................................................

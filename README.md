@@ -9,7 +9,7 @@
 
 # MingKwai-NCR
 
-A derivative of [NCR](https://github.com/loveencounterflow/mingkwai-ncr.git) with extra data for CJK
+A derivative of [NCR](https://github.com/loveencounterflow/ncr.git) with extra data for CJK
 character processing and typesetting.
 
 ## Usage
@@ -23,7 +23,8 @@ MKNCR = require 'mingkwai-ncr'
 
 There are a few points to keep in mind:
 
-* `mingkwai-ncr` only works properly in tandem with `jizura-datasources` and `jizura-db-feeder`;
+* `mingkwai-ncr` only works properly in tandem with `jizura-datasources` and `mojikura` (the Jizura DB
+  feeder);
 
 * those modules are expected to be found within the same
   ['rack'](https://github.com/loveencounterflow/mingkwai-rack) folder as `mingkwai-ncr` itself;

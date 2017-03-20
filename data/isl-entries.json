@@ -504,6 +504,76 @@
     }
   },
   {
+    "lo": 12298,
+    "hi": 12298,
+    "tex": {
+      "codepoint": "{\\mktsFontfileNanummyeongjo{}《}"
+    }
+  },
+  {
+    "lo": 12299,
+    "hi": 12299,
+    "tex": {
+      "codepoint": "{\\mktsFontfileNanummyeongjo{}》}"
+    }
+  },
+  {
+    "lo": 12304,
+    "hi": 12304,
+    "tex": {
+      "codepoint": "{\\mktsFontfileNanummyeongjo{}【}"
+    }
+  },
+  {
+    "lo": 12305,
+    "hi": 12305,
+    "tex": {
+      "codepoint": "{\\mktsFontfileNanummyeongjo{}】}"
+    }
+  },
+  {
+    "lo": 12290,
+    "hi": 12290,
+    "tex": {
+      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}。}"
+    }
+  },
+  {
+    "lo": 12289,
+    "hi": 12289,
+    "tex": {
+      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}、}"
+    }
+  },
+  {
+    "lo": 65292,
+    "hi": 65292,
+    "tex": {
+      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}，}"
+    }
+  },
+  {
+    "lo": 65306,
+    "hi": 65306,
+    "tex": {
+      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}：}"
+    }
+  },
+  {
+    "lo": 65288,
+    "hi": 65288,
+    "tex": {
+      "codepoint": "{\\tfPush{-0.25}（}"
+    }
+  },
+  {
+    "lo": 65289,
+    "hi": 65289,
+    "tex": {
+      "codepoint": "{\\tfPush{0.25}）}"
+    }
+  },
+  {
     "lo": 22231,
     "hi": 22231,
     "tex": {

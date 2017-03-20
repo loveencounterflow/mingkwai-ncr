@@ -30,10 +30,10 @@
   "author": "loveencounterflow",
   "license": "MIT",
   "devDependencies": {
-    "guy-test": "^1.3.2"
+    "guy-test": "^1.3.3"
   },
   "dependencies": {
-    "cnd": "^4.2.0",
+    "cnd": "^4.2.2",
     "guy-test": "^1.3.1",
     "multimix": "0.0.6",
     "ncr": "^0.3.0",

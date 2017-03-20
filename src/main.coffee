@@ -207,6 +207,7 @@ populate_isl_with_tex_formats = ( S, handler ) ->
   #.........................................................................................................
   ### TAINT must resolve (X)NCRs ###
   for glyph, glyph_style of glyph_styles
+    continue unless glyph_style?
     cid             = MKNCR.as_cid glyph
     glyph_style_tex = glyph_style_as_tex glyph, glyph_style
     S.collector.push { lo: cid, hi: cid, tex: { codepoint: glyph_style_tex, }, }

@@ -126,7 +126,6 @@ do =>
       #.....................................................................................................
       ### Instead of doing proper multi-characterset treatment,
       consider all Private Use Area CPs and all non-Unicode CPs as being CJK: ###
-      debug '77762', R
       if ( rsg is 'u-pua' ) or ( csg isnt 'u' )
         tag = R[ 'tag' ] ? []
         tag.push 'assigned'   unless 'assigned'   in tag

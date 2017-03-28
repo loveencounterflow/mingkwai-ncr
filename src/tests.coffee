@@ -158,6 +158,7 @@ u                         = MKNCR.unicode_isl
   #.........................................................................................................
   return null
 
+
 #-----------------------------------------------------------------------------------------------------------
 @[ "descriptions (2)" ] = ( T ) ->
   probes_and_matchers = [
@@ -167,10 +168,10 @@ u                         = MKNCR.unicode_isl
     ["&#x1233;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1234;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1235;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
-    ["&morohashi#x1234;",["morohashi",["assigned","cjk"],undefined]]
-    ["&#xe100;",["u",["assigned","pua","cjk"],{"block":"\\cnjzr{}"}]]
-    ["&jzr#xe100;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
-    ["&jzr#xe19f;",["jzr",["assigned","cjk"],{"block":"\\cnjzr{}"}]]
+    ["&morohashi#x1234;",["morohashi",["assigned","cjk","ideograph"],undefined]]
+    ["&#xe100;",["jzr",["assigned","cjk","ideograph"],{"block":"\\cnjzr{}"}]]
+    ["&jzr#xe100;",["jzr",["assigned","cjk","ideograph"],{"block":"\\cnjzr{}"}]]
+    ["&jzr#xe19f;",["jzr",["assigned","cjk","ideograph"],{"block":"\\cnjzr{}"}]]
     ]
   for [ probe, matcher, ] in probes_and_matchers
     description         = MKNCR.describe probe
@@ -179,6 +180,19 @@ u                         = MKNCR.unicode_isl
     # urge JSON.stringify [ probe, result, ]
     # urge JSON.stringify [ probe, description, ]
     T.eq result, matcher
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "descriptions (3)" ] = ( T ) ->
+  description_A = MKNCR.describe '&jzr#xe100;'
+  description_B = MKNCR.describe 0xe100
+  urge description_A
+  urge description_B
+  T.eq description_A, description_B
+  # urge JSON.stringify [ probe, result, ]
+  # urge JSON.stringify [ probe, description, ]
+  # T.eq result, matcher
   #.........................................................................................................
   return null
 
@@ -285,13 +299,16 @@ demo_2 = ->
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
   include = [
-    # "demo"
+    # # "demo"
     "aggregate"
     "SIMs, TeX formats"
     "jzr_as_xncr"
-    "descriptions (2)"
     "MojiKura get_set_of_CJK_ideograph_cids includes u-cjk-cmpi2"
+    "descriptions (2)"
+    "descriptions (3)"
     ]
   @_prune()
   @_main()
+
+
 

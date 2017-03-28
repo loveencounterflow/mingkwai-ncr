@@ -126,11 +126,21 @@ do =>
       #.....................................................................................................
       ### Instead of doing proper multi-characterset treatment,
       consider all Private Use Area CPs and all non-Unicode CPs as being CJK: ###
-      if ( csg is 'u' and rsg is 'u-pua' ) or ( csg isnt 'u' )
-        tag = R[ 'tag' ] ?= []
-        tag.push 'assigned' unless 'assigned' in tag
-        tag.push 'cjk'      unless 'cjk'      in tag
-        if csg is 'jzr' and not R[ 'tex' ]?
+      debug '77762', R
+      if ( rsg is 'u-pua' ) or ( csg isnt 'u' )
+        tag = R[ 'tag' ] ? []
+        tag.push 'assigned'   unless 'assigned'   in tag
+        tag.push 'cjk'        unless 'cjk'        in tag
+        tag.push 'ideograph'  unless 'ideograph'  in tag
+        R[ 'tag' ] = ( t for t in tag when t isnt 'pua' )
+        if rsg is 'u-pua'
+          R[ 'rsg'    ] = 'jzr'
+          R[ 'csg'    ] = 'jzr'
+          R[ 'fncr'   ] = R[ 'fncr'   ].replace 'u-pua-', 'jzr-'
+          R[ 'sfncr'  ] = R[ 'sfncr'  ].replace 'u-',     'jzr-'
+          R[ 'xncr'   ] = R[ 'xncr'   ].replace '&#x',    '&jzr#x'
+          R[ 'chr'    ] = R[ 'xncr'   ]
+        if R[ 'csg' ] is 'jzr' and not R[ 'tex' ]?
           R[ 'tex' ] = ( @describe R[ 'cid' ] )[ 'tex' ]
       #.....................................................................................................
       cache[ id ] = R

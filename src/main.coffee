@@ -183,8 +183,9 @@ rewrite_cache = ( handler = null ) ->
   #.........................................................................................................
   step ( resume ) ->
     yield populate_isl_with_tex_formats  S, resume
-    yield populate_isl_with_sims         S, resume
+    # yield populate_isl_with_sims         S, resume
     yield populate_isl_with_extra_data   S, resume
+    # debug '44743', S
     FS.writeFileSync S.paths.cache, JSON.stringify S.collector, null, '  '
     ISL.add u, entry for entry in S.collector
     #.......................................................................................................

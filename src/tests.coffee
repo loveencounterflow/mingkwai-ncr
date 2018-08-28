@@ -68,7 +68,7 @@ u                         = MKNCR.unicode_isl
   ISL       = MKNCR._ISL
   probes_and_matchers = [
     ["q",{"tag":["assigned"],"rsg":"u-latn"}]
-    ["里",{"tag":["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk"}]
+    ["里",{"tag":["assigned","ideograph","cjk",],"rsg":"u-cjk"}]
     ["䊷",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk-xa"}]
     ["《",{"tag":["assigned","punctuation","cjk"],"rsg":"u-cjk-sym"}]
     ["🖹",{"tag":["assigned"]}]
@@ -88,17 +88,6 @@ u                         = MKNCR.unicode_isl
 
 #-----------------------------------------------------------------------------------------------------------
 @[ "SIMs, TeX formats" ] = ( T ) ->
-  #.........................................................................................................
-  sim_tags = [
-    'sim/source/global'
-    'sim/source/components'
-    'sim/source/components/search'
-    'sim/source/false-identity'
-    'sim/target/global'
-    'sim/target/components'
-    'sim/target/components/search'
-    'sim/target/false-identity'
-    ]
   #.........................................................................................................
   recipe =
     fallback: 'skip'
@@ -121,26 +110,26 @@ u                         = MKNCR.unicode_isl
             R[ name ] = sub_value
         return R
   #.........................................................................................................
-  recipe[ 'fields' ][ sim_tag ] = 'list' for sim_tag in sim_tags
-  #.........................................................................................................
   # text  = '([Xqf]) ([里䊷䊷里]) ([Xqf])'
   # text  = 'q里䊷f'
   # text = '釒'
   # text = '龵⿸釒金𤴔丨亅㐅乂'
   probes_and_matchers = [
-    ["龵",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"block":"\\cn{}","codepoint":"{\\tfRaise{-0.1}\\cnxBabel{}龵}"}}]
+    ["龵",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"codepoint":"{\\tfRaise{-0.1}\\cnxBabel{}龵}"}}]
     ["？",{"tag":["assigned","cjk"],"rsg":"u-halfull","tex":{"block":"\\cn{}"}}]
-    ["⿸",{"tag":["assigned","cjk","idl"],"rsg":"u-cjk-idc","tex":{"block":"\\mktsRsgFb{}","codepoint":"{\\cnxJzr{}}"}}]
-    ["釒",{"tag":["assigned","ideograph","cjk","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk","sim/target/components":["金"],"tex":{"block":"\\cn{}","codepoint":"{\\tfPush{0.4}釒}"}}]
-    ["金",{"tag":["assigned","ideograph","cjk","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/global":["金","⾦"],"sim/source/components":["釒"],"tex":{"block":"\\cn{}"}}]
-    ["𤴔",{"tag":["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk-xb","sim/source/global":["⺪"],"tex":{"block":"\\cnxb{}","codepoint":"{\\cnxBabel{}𤴔}"}}]
-    ["丨",{"tag":["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk","sim/source/global":["〡","⼁","㇑"],"tex":{"block":"\\cn{}"}}]
-    ["亅",{"tag":["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],"rsg":"u-cjk","sim/source/global":["⼅","㇚"],"tex":{"block":"\\cn{}"}}]
-    ["㐅",{"tag":["assigned","ideograph","cjk","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global","sim","sim/has-target","sim/is-source","sim/has-target/components","sim/is-source/components","sim/components"],"rsg":"u-cjk-xa","sim/source/global":["〤"],"sim/target/components":["乂"],"tex":{"block":"\\cnxa{}"}}]
-    ["乂",{"tag":["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/components","sim/is-target/components","sim/components"],"rsg":"u-cjk","sim/source/components":["㐅","乄"],"tex":{"block":"\\cn{}"}}]
+    ["⿸",{"tag":["assigned","cjk","idl"],"rsg":"u-cjk-idc","tex":{"block":"\\mktsRsgFb{}"}}]
+    ["釒",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"codepoint":"{\\tfPush{0.4}釒}"}}]
+    ["金",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"block":"\\cn{}"}}]
+    ["𤴔",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk-xb","tex":{"codepoint":"{\\cnxBabel{}𤴔}"}}]
+    ["丨",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"block":"\\cn{}"}}]
+    ["亅",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"block":"\\cn{}"}}]
+    ["㐅",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk-xa","tex":{"block":"\\cnxa{}"}}]
+    ["乂",{"tag":["assigned","ideograph","cjk"],"rsg":"u-cjk","tex":{"block":"\\cn{}"}}]
     ]
   for [ probe, matcher, ] in probes_and_matchers
-    description = ISL.aggregate u, probe, recipe
+    description = ISL.aggregate u, probe
+    for key in Object.keys description
+      delete description[ key ] unless key in [ 'tag', 'rsg', 'tex', ]
     # help '28107', matcher
     # warn '28107', description
     # debug '40223', JSON.stringify [ probe, description, ]; continue
@@ -163,8 +152,9 @@ u                         = MKNCR.unicode_isl
 @[ "descriptions (2)" ] = ( T ) ->
   probes_and_matchers = [
     ["⿲",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}"}]]
-    ["⿱",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}","codepoint":"{\\cnxJzr{}}"}]]
-    ["木",["u",["assigned","ideograph","cjk","sim","sim/has-source","sim/is-target","sim/has-source/global","sim/is-target/global","sim/global"],{"block":"\\cn{}"}]]
+    # ["⿱",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}","codepoint":"{\\cnxJzr{}}"}]]
+    ["⿱",["u",["assigned","cjk","idl"],{"block":"\\mktsRsgFb{}"}]]
+    ["木",["u",["assigned","ideograph","cjk"],{"block":"\\cn{}"}]]
     ["&#x1233;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1234;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]
     ["&#x1235;",["u",["assigned"],{"block":"\\mktsRsgFb{}"}]]

@@ -126,17 +126,31 @@
     }
   },
   {
+    "lo": 13056,
+    "hi": 13311,
+    "tex": {
+      "block": "\\cnUcjkcmp{}"
+    }
+  },
+  {
+    "lo": 65072,
+    "hi": 65103,
+    "tex": {
+      "block": "\\cnUcjkcmpf{}"
+    }
+  },
+  {
     "lo": 63744,
     "hi": 64255,
     "tex": {
-      "block": "\\cncone{}"
+      "block": "\\cnUcjkcmpione{}"
     }
   },
   {
     "lo": 194560,
     "hi": 195103,
     "tex": {
-      "block": "\\cnctwo{}"
+      "block": "\\cnUcjkcmpitwo{}"
     }
   },
   {
@@ -193,6 +207,13 @@
     "hi": 55215,
     "tex": {
       "block": "\\hg{}"
+    }
+  },
+  {
+    "lo": 127488,
+    "hi": 127743,
+    "tex": {
+      "block": "\\cnencsupp{}"
     }
   },
   {
@@ -427,6 +448,55 @@
     }
   },
   {
+    "lo": 127547,
+    "hi": 127547,
+    "tex": {
+      "codepoint": "{\\mktsFontfileThtshynpone{}🈻}"
+    }
+  },
+  {
+    "lo": 127584,
+    "hi": 127584,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉠}{}}"
+    }
+  },
+  {
+    "lo": 127585,
+    "hi": 127585,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉡}{}}"
+    }
+  },
+  {
+    "lo": 127586,
+    "hi": 127586,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉢}{}}"
+    }
+  },
+  {
+    "lo": 127587,
+    "hi": 127587,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉣}{}}"
+    }
+  },
+  {
+    "lo": 127588,
+    "hi": 127588,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉤}{}}"
+    }
+  },
+  {
+    "lo": 127589,
+    "hi": 127589,
+    "tex": {
+      "codepoint": "{\\mktsStyleCjkRoundSymbol{🉥}{}}"
+    }
+  },
+  {
     "lo": 9655,
     "hi": 9655,
     "tex": {
@@ -511,55 +581,6 @@
     }
   },
   {
-    "lo": 20155,
-    "hi": 20155,
-    "tex": {
-      "codepoint": "{\\tfPush{0.4}亻}"
-    }
-  },
-  {
-    "lo": 37330,
-    "hi": 37330,
-    "tex": {
-      "codepoint": "{\\tfPush{0.4}釒}"
-    }
-  },
-  {
-    "lo": 20907,
-    "hi": 20907,
-    "tex": {
-      "codepoint": "{\\tfPush{0.5}冫}"
-    }
-  },
-  {
-    "lo": 28780,
-    "hi": 28780,
-    "tex": {
-      "codepoint": "{\\tfRaise{0.25}灬}"
-    }
-  },
-  {
-    "lo": 29227,
-    "hi": 29227,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.125}爫}"
-    }
-  },
-  {
-    "lo": 29276,
-    "hi": 29276,
-    "tex": {
-      "codepoint": "{\\tfPush{0.4}牜}"
-    }
-  },
-  {
-    "lo": 39136,
-    "hi": 39136,
-    "tex": {
-      "codepoint": "{\\tfPush{0.4}飠}"
-    }
-  },
-  {
     "lo": 25164,
     "hi": 25164,
     "tex": {
@@ -567,10 +588,45 @@
     }
   },
   {
+    "lo": 20155,
+    "hi": 20155,
+    "tex": {
+      "codepoint": "{\\tfPush{0.6}亻}"
+    }
+  },
+  {
+    "lo": 37330,
+    "hi": 37330,
+    "tex": {
+      "codepoint": "{\\tfPush{0.5}釒}"
+    }
+  },
+  {
     "lo": 38021,
     "hi": 38021,
     "tex": {
-      "codepoint": "{\\tfPush{0.3}钅}"
+      "codepoint": "{\\tfPush{0.4}钅}"
+    }
+  },
+  {
+    "lo": 20907,
+    "hi": 20907,
+    "tex": {
+      "codepoint": "{\\tfPush{0.55}冫}"
+    }
+  },
+  {
+    "lo": 29276,
+    "hi": 29276,
+    "tex": {
+      "codepoint": "{\\tfPush{0.5}牜}"
+    }
+  },
+  {
+    "lo": 39136,
+    "hi": 39136,
+    "tex": {
+      "codepoint": "{\\tfPush{0.4}飠}"
     }
   },
   {
@@ -584,42 +640,35 @@
     "lo": 24516,
     "hi": 24516,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}忄}"
+      "codepoint": "{\\tfPush{0.5}忄}"
     }
   },
   {
     "lo": 31035,
     "hi": 31035,
     "tex": {
-      "codepoint": "{\\tfPush{0.2}礻}"
+      "codepoint": "{\\tfPush{0.3}礻}"
     }
   },
   {
     "lo": 34916,
     "hi": 34916,
     "tex": {
-      "codepoint": "{\\tfPush{0.1}衤}"
-    }
-  },
-  {
-    "lo": 35200,
-    "hi": 35200,
-    "tex": {
-      "codepoint": "{\\cnxJzr{}}"
+      "codepoint": "{\\tfPush{0.2}衤}"
     }
   },
   {
     "lo": 35744,
     "hi": 35744,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}讠}"
+      "codepoint": "{\\tfPush{0.5}讠}"
     }
   },
   {
     "lo": 163767,
     "hi": 163767,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}\\cnxb{}𧾷}"
+      "codepoint": "{\\tfPush{0.5}\\cnxb{}𧾷}"
     }
   },
   {
@@ -630,31 +679,10 @@
     }
   },
   {
-    "lo": 30326,
-    "hi": 30326,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.2}\\cnxBabel{}癶}"
-    }
-  },
-  {
-    "lo": 57714,
-    "hi": 57714,
-    "tex": {
-      "codepoint": "{\\tfRaise{0.1}\\cnxJzr{}}"
-    }
-  },
-  {
     "lo": 57806,
     "hi": 57806,
     "tex": {
       "codepoint": "{\\tfPushRaise{0.5}{-0.2}}"
-    }
-  },
-  {
-    "lo": 20059,
-    "hi": 20059,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.2}乛}"
     }
   },
   {
@@ -672,6 +700,97 @@
     }
   },
   {
+    "lo": 38429,
+    "hi": 38429,
+    "tex": {
+      "codepoint": "{\\tfPush{0.6}阝}"
+    }
+  },
+  {
+    "lo": 171018,
+    "hi": 171018,
+    "tex": {
+      "codepoint": "{\\tfPush{-0.25}\\cnxb{}𩰊}"
+    }
+  },
+  {
+    "lo": 171019,
+    "hi": 171019,
+    "tex": {
+      "codepoint": "{\\tfPush{0.25}\\cnxb{}𩰋}"
+    }
+  },
+  {
+    "lo": 24435,
+    "hi": 24435,
+    "tex": {
+      "codepoint": "{\\tfPush{0.15}彳}"
+    }
+  },
+  {
+    "lo": 28780,
+    "hi": 28780,
+    "tex": {
+      "codepoint": "{\\tfRaise{0.4}灬}"
+    }
+  },
+  {
+    "lo": 29227,
+    "hi": 29227,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.125}爫}"
+    }
+  },
+  {
+    "lo": 35200,
+    "hi": 35200,
+    "tex": {
+      "codepoint": "{\\cnxJzr{}}"
+    }
+  },
+  {
+    "lo": 30326,
+    "hi": 30326,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.2}\\cnxBabel{}癶}"
+    }
+  },
+  {
+    "lo": 57714,
+    "hi": 57714,
+    "tex": {
+      "codepoint": "{\\tfRaise{0.1}\\cnxJzr{}}"
+    }
+  },
+  {
+    "lo": 20059,
+    "hi": 20059,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.25}乛}"
+    }
+  },
+  {
+    "lo": 40888,
+    "hi": 40888,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.15}龸}"
+    }
+  },
+  {
+    "lo": 17553,
+    "hi": 17553,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.1}\\cnxa{}䒑}"
+    }
+  },
+  {
+    "lo": 23424,
+    "hi": 23424,
+    "tex": {
+      "codepoint": "{\\tfRaise{-0.2}宀}"
+    }
+  },
+  {
     "lo": 154327,
     "hi": 154327,
     "tex": {
@@ -686,13 +805,6 @@
     }
   },
   {
-    "lo": 38429,
-    "hi": 38429,
-    "tex": {
-      "codepoint": "{\\tfPush{0.4}阝}"
-    }
-  },
-  {
     "lo": 40885,
     "hi": 40885,
     "tex": {
@@ -700,52 +812,10 @@
     }
   },
   {
-    "lo": 171018,
-    "hi": 171018,
-    "tex": {
-      "codepoint": "{\\tfPush{-0.15}\\cnxb{}𩰊}"
-    }
-  },
-  {
-    "lo": 171019,
-    "hi": 171019,
-    "tex": {
-      "codepoint": "{\\tfPush{0.15}\\cnxb{}𩰋}"
-    }
-  },
-  {
-    "lo": 24435,
-    "hi": 24435,
-    "tex": {
-      "codepoint": "{\\tfPush{0.15}彳}"
-    }
-  },
-  {
     "lo": 40889,
     "hi": 40889,
     "tex": {
       "codepoint": "{\\tfRaise{-0.12}龹}"
-    }
-  },
-  {
-    "lo": 40888,
-    "hi": 40888,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.15}龸}"
-    }
-  },
-  {
-    "lo": 17553,
-    "hi": 17553,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.15}\\cnxa{}䒑}"
-    }
-  },
-  {
-    "lo": 23424,
-    "hi": 23424,
-    "tex": {
-      "codepoint": "{\\tfRaise{-0.15}宀}"
     }
   },
   {
@@ -1262,6 +1332,13 @@
   {
     "lo": 12800,
     "hi": 13055,
+    "tag": [
+      "cjk"
+    ]
+  },
+  {
+    "lo": 127488,
+    "hi": 127743,
     "tag": [
       "cjk"
     ]

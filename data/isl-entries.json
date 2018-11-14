@@ -1211,6 +1211,804 @@
     }
   },
   {
+    "lo": 8508,
+    "hi": 8508,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℼ}"
+    }
+  },
+  {
+    "lo": 8509,
+    "hi": 8509,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℽ}"
+    }
+  },
+  {
+    "lo": 8510,
+    "hi": 8510,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℾ}"
+    }
+  },
+  {
+    "lo": 8511,
+    "hi": 8511,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℿ}"
+    }
+  },
+  {
+    "lo": 8512,
+    "hi": 8512,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}⅀}"
+    }
+  },
+  {
+    "lo": 8517,
+    "hi": 8517,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ⅅ}"
+    }
+  },
+  {
+    "lo": 8518,
+    "hi": 8518,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ⅆ}"
+    }
+  },
+  {
+    "lo": 8519,
+    "hi": 8519,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ⅇ}"
+    }
+  },
+  {
+    "lo": 8520,
+    "hi": 8520,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ⅈ}"
+    }
+  },
+  {
+    "lo": 8521,
+    "hi": 8521,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ⅉ}"
+    }
+  },
+  {
+    "lo": 120120,
+    "hi": 120120,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔸}"
+    }
+  },
+  {
+    "lo": 120121,
+    "hi": 120121,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔹}"
+    }
+  },
+  {
+    "lo": 8450,
+    "hi": 8450,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℂ}"
+    }
+  },
+  {
+    "lo": 120123,
+    "hi": 120123,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔻}"
+    }
+  },
+  {
+    "lo": 120124,
+    "hi": 120124,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔼}"
+    }
+  },
+  {
+    "lo": 120125,
+    "hi": 120125,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔽}"
+    }
+  },
+  {
+    "lo": 120126,
+    "hi": 120126,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝔾}"
+    }
+  },
+  {
+    "lo": 8461,
+    "hi": 8461,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℍ}"
+    }
+  },
+  {
+    "lo": 120128,
+    "hi": 120128,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕀}"
+    }
+  },
+  {
+    "lo": 120129,
+    "hi": 120129,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕁}"
+    }
+  },
+  {
+    "lo": 120130,
+    "hi": 120130,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕂}"
+    }
+  },
+  {
+    "lo": 120131,
+    "hi": 120131,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕃}"
+    }
+  },
+  {
+    "lo": 120132,
+    "hi": 120132,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕄}"
+    }
+  },
+  {
+    "lo": 8469,
+    "hi": 8469,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℕ}"
+    }
+  },
+  {
+    "lo": 120134,
+    "hi": 120134,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕆}"
+    }
+  },
+  {
+    "lo": 8473,
+    "hi": 8473,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℙ}"
+    }
+  },
+  {
+    "lo": 8474,
+    "hi": 8474,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℚ}"
+    }
+  },
+  {
+    "lo": 8477,
+    "hi": 8477,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℝ}"
+    }
+  },
+  {
+    "lo": 120138,
+    "hi": 120138,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕊}"
+    }
+  },
+  {
+    "lo": 120139,
+    "hi": 120139,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕋}"
+    }
+  },
+  {
+    "lo": 120140,
+    "hi": 120140,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕌}"
+    }
+  },
+  {
+    "lo": 120141,
+    "hi": 120141,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕍}"
+    }
+  },
+  {
+    "lo": 120142,
+    "hi": 120142,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕎}"
+    }
+  },
+  {
+    "lo": 120143,
+    "hi": 120143,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕏}"
+    }
+  },
+  {
+    "lo": 120144,
+    "hi": 120144,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕐}"
+    }
+  },
+  {
+    "lo": 8484,
+    "hi": 8484,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}ℤ}"
+    }
+  },
+  {
+    "lo": 120146,
+    "hi": 120146,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕒}"
+    }
+  },
+  {
+    "lo": 120147,
+    "hi": 120147,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕓}"
+    }
+  },
+  {
+    "lo": 120148,
+    "hi": 120148,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕔}"
+    }
+  },
+  {
+    "lo": 120149,
+    "hi": 120149,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕕}"
+    }
+  },
+  {
+    "lo": 120150,
+    "hi": 120150,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕖}"
+    }
+  },
+  {
+    "lo": 120151,
+    "hi": 120151,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕗}"
+    }
+  },
+  {
+    "lo": 120152,
+    "hi": 120152,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕘}"
+    }
+  },
+  {
+    "lo": 120153,
+    "hi": 120153,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕙}"
+    }
+  },
+  {
+    "lo": 120154,
+    "hi": 120154,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕚}"
+    }
+  },
+  {
+    "lo": 120155,
+    "hi": 120155,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕛}"
+    }
+  },
+  {
+    "lo": 120156,
+    "hi": 120156,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕜}"
+    }
+  },
+  {
+    "lo": 120157,
+    "hi": 120157,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕝}"
+    }
+  },
+  {
+    "lo": 120158,
+    "hi": 120158,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕞}"
+    }
+  },
+  {
+    "lo": 120159,
+    "hi": 120159,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕟}"
+    }
+  },
+  {
+    "lo": 120160,
+    "hi": 120160,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕠}"
+    }
+  },
+  {
+    "lo": 120161,
+    "hi": 120161,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕡}"
+    }
+  },
+  {
+    "lo": 120162,
+    "hi": 120162,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕢}"
+    }
+  },
+  {
+    "lo": 120163,
+    "hi": 120163,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕣}"
+    }
+  },
+  {
+    "lo": 120164,
+    "hi": 120164,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕤}"
+    }
+  },
+  {
+    "lo": 120165,
+    "hi": 120165,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕥}"
+    }
+  },
+  {
+    "lo": 120166,
+    "hi": 120166,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕦}"
+    }
+  },
+  {
+    "lo": 120167,
+    "hi": 120167,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕧}"
+    }
+  },
+  {
+    "lo": 120168,
+    "hi": 120168,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕨}"
+    }
+  },
+  {
+    "lo": 120169,
+    "hi": 120169,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕩}"
+    }
+  },
+  {
+    "lo": 120170,
+    "hi": 120170,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕪}"
+    }
+  },
+  {
+    "lo": 120171,
+    "hi": 120171,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕫}"
+    }
+  },
+  {
+    "lo": 120172,
+    "hi": 120172,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕬}"
+    }
+  },
+  {
+    "lo": 120173,
+    "hi": 120173,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕭}"
+    }
+  },
+  {
+    "lo": 120174,
+    "hi": 120174,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕮}"
+    }
+  },
+  {
+    "lo": 120175,
+    "hi": 120175,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕯}"
+    }
+  },
+  {
+    "lo": 120176,
+    "hi": 120176,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕰}"
+    }
+  },
+  {
+    "lo": 120177,
+    "hi": 120177,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕱}"
+    }
+  },
+  {
+    "lo": 120178,
+    "hi": 120178,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕲}"
+    }
+  },
+  {
+    "lo": 120179,
+    "hi": 120179,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕳}"
+    }
+  },
+  {
+    "lo": 120180,
+    "hi": 120180,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕴}"
+    }
+  },
+  {
+    "lo": 120181,
+    "hi": 120181,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕵}"
+    }
+  },
+  {
+    "lo": 120182,
+    "hi": 120182,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕶}"
+    }
+  },
+  {
+    "lo": 120183,
+    "hi": 120183,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕷}"
+    }
+  },
+  {
+    "lo": 120184,
+    "hi": 120184,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕸}"
+    }
+  },
+  {
+    "lo": 120185,
+    "hi": 120185,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕹}"
+    }
+  },
+  {
+    "lo": 120186,
+    "hi": 120186,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕺}"
+    }
+  },
+  {
+    "lo": 120187,
+    "hi": 120187,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕻}"
+    }
+  },
+  {
+    "lo": 120188,
+    "hi": 120188,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕼}"
+    }
+  },
+  {
+    "lo": 120189,
+    "hi": 120189,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕽}"
+    }
+  },
+  {
+    "lo": 120190,
+    "hi": 120190,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕾}"
+    }
+  },
+  {
+    "lo": 120191,
+    "hi": 120191,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝕿}"
+    }
+  },
+  {
+    "lo": 120192,
+    "hi": 120192,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖀}"
+    }
+  },
+  {
+    "lo": 120193,
+    "hi": 120193,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖁}"
+    }
+  },
+  {
+    "lo": 120194,
+    "hi": 120194,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖂}"
+    }
+  },
+  {
+    "lo": 120195,
+    "hi": 120195,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖃}"
+    }
+  },
+  {
+    "lo": 120196,
+    "hi": 120196,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖄}"
+    }
+  },
+  {
+    "lo": 120197,
+    "hi": 120197,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖅}"
+    }
+  },
+  {
+    "lo": 120198,
+    "hi": 120198,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖆}"
+    }
+  },
+  {
+    "lo": 120199,
+    "hi": 120199,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖇}"
+    }
+  },
+  {
+    "lo": 120200,
+    "hi": 120200,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖈}"
+    }
+  },
+  {
+    "lo": 120201,
+    "hi": 120201,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖉}"
+    }
+  },
+  {
+    "lo": 120202,
+    "hi": 120202,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖊}"
+    }
+  },
+  {
+    "lo": 120203,
+    "hi": 120203,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖋}"
+    }
+  },
+  {
+    "lo": 120204,
+    "hi": 120204,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖌}"
+    }
+  },
+  {
+    "lo": 120205,
+    "hi": 120205,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖍}"
+    }
+  },
+  {
+    "lo": 120206,
+    "hi": 120206,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖎}"
+    }
+  },
+  {
+    "lo": 120207,
+    "hi": 120207,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖏}"
+    }
+  },
+  {
+    "lo": 120208,
+    "hi": 120208,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖐}"
+    }
+  },
+  {
+    "lo": 120209,
+    "hi": 120209,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖑}"
+    }
+  },
+  {
+    "lo": 120210,
+    "hi": 120210,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖒}"
+    }
+  },
+  {
+    "lo": 120211,
+    "hi": 120211,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖓}"
+    }
+  },
+  {
+    "lo": 120212,
+    "hi": 120212,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖔}"
+    }
+  },
+  {
+    "lo": 120213,
+    "hi": 120213,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖕}"
+    }
+  },
+  {
+    "lo": 120214,
+    "hi": 120214,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖖}"
+    }
+  },
+  {
+    "lo": 120215,
+    "hi": 120215,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖗}"
+    }
+  },
+  {
+    "lo": 120216,
+    "hi": 120216,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖘}"
+    }
+  },
+  {
+    "lo": 120217,
+    "hi": 120217,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖙}"
+    }
+  },
+  {
+    "lo": 120218,
+    "hi": 120218,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖚}"
+    }
+  },
+  {
+    "lo": 120219,
+    "hi": 120219,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖛}"
+    }
+  },
+  {
+    "lo": 120220,
+    "hi": 120220,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖜}"
+    }
+  },
+  {
+    "lo": 120221,
+    "hi": 120221,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖝}"
+    }
+  },
+  {
+    "lo": 120222,
+    "hi": 120222,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖞}"
+    }
+  },
+  {
+    "lo": 120223,
+    "hi": 120223,
+    "tex": {
+      "codepoint": "{\\mktsFontfileAsanamath{}𝖟}"
+    }
+  },
+  {
     "lo": 19968,
     "hi": 40959,
     "tag": [

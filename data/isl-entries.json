@@ -252,6 +252,83 @@
     }
   },
   {
+    "lo": 9552,
+    "hi": 9552,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}═}"
+    }
+  },
+  {
+    "lo": 9553,
+    "hi": 9553,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}║}"
+    }
+  },
+  {
+    "lo": 9556,
+    "hi": 9556,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╔}"
+    }
+  },
+  {
+    "lo": 9559,
+    "hi": 9559,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╗}"
+    }
+  },
+  {
+    "lo": 9562,
+    "hi": 9562,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╚}"
+    }
+  },
+  {
+    "lo": 9565,
+    "hi": 9565,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╝}"
+    }
+  },
+  {
+    "lo": 9568,
+    "hi": 9568,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╠}"
+    }
+  },
+  {
+    "lo": 9571,
+    "hi": 9571,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╣}"
+    }
+  },
+  {
+    "lo": 9572,
+    "hi": 9572,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╤}"
+    }
+  },
+  {
+    "lo": 9575,
+    "hi": 9575,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╧}"
+    }
+  },
+  {
+    "lo": 9578,
+    "hi": 9578,
+    "tex": {
+      "codepoint": "{\\mktsStyleBoxDrawing{}╪}"
+    }
+  },
+  {
     "lo": 10558,
     "hi": 10558,
     "tex": {

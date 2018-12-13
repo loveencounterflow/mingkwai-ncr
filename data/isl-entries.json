@@ -381,7 +381,7 @@
     "lo": 65099,
     "hi": 65099,
     "tex": {
-      "codepoint": "{\\tfPush{-0.35}\\cnxBabel{}﹋}"
+      "codepoint": "{\\mktstfPush{-0.35}\\cnxBabel{}﹋}"
     }
   },
   {
@@ -612,42 +612,42 @@
     "lo": 12290,
     "hi": 12290,
     "tex": {
-      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}。}"
+      "codepoint": "{\\mktstfPushRaise{0.5}{0.25}\\cn{}。}"
     }
   },
   {
     "lo": 12289,
     "hi": 12289,
     "tex": {
-      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}、}"
+      "codepoint": "{\\mktstfPushRaise{0.5}{0.25}\\cn{}、}"
     }
   },
   {
     "lo": 65292,
     "hi": 65292,
     "tex": {
-      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}，}"
+      "codepoint": "{\\mktstfPushRaise{0.5}{0.25}\\cn{}，}"
     }
   },
   {
     "lo": 65306,
     "hi": 65306,
     "tex": {
-      "codepoint": "{\\tfPushRaise{0.5}{0.25}\\cn{}：}"
+      "codepoint": "{\\mktstfPushRaise{0.5}{0.25}\\cn{}：}"
     }
   },
   {
     "lo": 65288,
     "hi": 65288,
     "tex": {
-      "codepoint": "{\\tfPush{-0.25}（}"
+      "codepoint": "{\\mktstfPush{-0.25}（}"
     }
   },
   {
     "lo": 65289,
     "hi": 65289,
     "tex": {
-      "codepoint": "{\\tfPush{0.25}）}"
+      "codepoint": "{\\mktstfPush{0.25}）}"
     }
   },
   {
@@ -661,161 +661,161 @@
     "lo": 25164,
     "hi": 25164,
     "tex": {
-      "codepoint": "{\\tfPush{0.05}扌}"
+      "codepoint": "{\\mktstfPush{0.05}扌}"
     }
   },
   {
     "lo": 20155,
     "hi": 20155,
     "tex": {
-      "codepoint": "{\\tfPush{0.6}亻}"
+      "codepoint": "{\\mktstfPush{0.6}亻}"
     }
   },
   {
     "lo": 37330,
     "hi": 37330,
     "tex": {
-      "codepoint": "{\\tfPush{0.5}釒}"
+      "codepoint": "{\\mktstfPush{0.5}釒}"
     }
   },
   {
     "lo": 38021,
     "hi": 38021,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}钅}"
+      "codepoint": "{\\mktstfPush{0.4}钅}"
     }
   },
   {
     "lo": 20907,
     "hi": 20907,
     "tex": {
-      "codepoint": "{\\tfPush{0.55}冫}"
+      "codepoint": "{\\mktstfPush{0.55}冫}"
     }
   },
   {
     "lo": 29276,
     "hi": 29276,
     "tex": {
-      "codepoint": "{\\tfPush{0.5}牜}"
+      "codepoint": "{\\mktstfPush{0.5}牜}"
     }
   },
   {
     "lo": 39136,
     "hi": 39136,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}飠}"
+      "codepoint": "{\\mktstfPush{0.4}飠}"
     }
   },
   {
     "lo": 29357,
     "hi": 29357,
     "tex": {
-      "codepoint": "{\\tfPush{0.3}犭}"
+      "codepoint": "{\\mktstfPush{0.3}犭}"
     }
   },
   {
     "lo": 24516,
     "hi": 24516,
     "tex": {
-      "codepoint": "{\\tfPush{0.5}忄}"
+      "codepoint": "{\\mktstfPush{0.5}忄}"
     }
   },
   {
     "lo": 31035,
     "hi": 31035,
     "tex": {
-      "codepoint": "{\\tfPush{0.3}礻}"
+      "codepoint": "{\\mktstfPush{0.3}礻}"
     }
   },
   {
     "lo": 34916,
     "hi": 34916,
     "tex": {
-      "codepoint": "{\\tfPush{0.2}衤}"
+      "codepoint": "{\\mktstfPush{0.2}衤}"
     }
   },
   {
     "lo": 35744,
     "hi": 35744,
     "tex": {
-      "codepoint": "{\\tfPush{0.5}讠}"
+      "codepoint": "{\\mktstfPush{0.5}讠}"
     }
   },
   {
     "lo": 163767,
     "hi": 163767,
     "tex": {
-      "codepoint": "{\\tfPush{0.5}\\cnxb{}𧾷}"
+      "codepoint": "{\\mktstfPush{0.5}\\cnxb{}𧾷}"
     }
   },
   {
     "lo": 21353,
     "hi": 21353,
     "tex": {
-      "codepoint": "{\\tfPush{-0.4}卩}"
+      "codepoint": "{\\mktstfPush{-0.4}卩}"
     }
   },
   {
     "lo": 57806,
     "hi": 57806,
     "tex": {
-      "codepoint": "{\\tfPushRaise{0.5}{-0.2}}"
+      "codepoint": "{\\mktstfPushRaise{0.5}{-0.2}}"
     }
   },
   {
     "lo": 31993,
     "hi": 31993,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}糹}"
+      "codepoint": "{\\mktstfPush{0.4}糹}"
     }
   },
   {
     "lo": 32415,
     "hi": 32415,
     "tex": {
-      "codepoint": "{\\tfPush{0.4}纟}"
+      "codepoint": "{\\mktstfPush{0.4}纟}"
     }
   },
   {
     "lo": 38429,
     "hi": 38429,
     "tex": {
-      "codepoint": "{\\tfPush{0.6}阝}"
+      "codepoint": "{\\mktstfPush{0.6}阝}"
     }
   },
   {
     "lo": 171018,
     "hi": 171018,
     "tex": {
-      "codepoint": "{\\tfPush{-0.25}\\cnxb{}𩰊}"
+      "codepoint": "{\\mktstfPush{-0.25}\\cnxb{}𩰊}"
     }
   },
   {
     "lo": 171019,
     "hi": 171019,
     "tex": {
-      "codepoint": "{\\tfPush{0.25}\\cnxb{}𩰋}"
+      "codepoint": "{\\mktstfPush{0.25}\\cnxb{}𩰋}"
     }
   },
   {
     "lo": 24435,
     "hi": 24435,
     "tex": {
-      "codepoint": "{\\tfPush{0.15}彳}"
+      "codepoint": "{\\mktstfPush{0.15}彳}"
     }
   },
   {
     "lo": 28780,
     "hi": 28780,
     "tex": {
-      "codepoint": "{\\tfRaise{0.4}灬}"
+      "codepoint": "{\\mktstfRaise{0.4}灬}"
     }
   },
   {
     "lo": 29227,
     "hi": 29227,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.125}爫}"
+      "codepoint": "{\\mktstfRaise{-0.125}爫}"
     }
   },
   {
@@ -829,77 +829,77 @@
     "lo": 30326,
     "hi": 30326,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.2}\\cnxBabel{}癶}"
+      "codepoint": "{\\mktstfRaise{-0.2}\\cnxBabel{}癶}"
     }
   },
   {
     "lo": 57714,
     "hi": 57714,
     "tex": {
-      "codepoint": "{\\tfRaise{0.1}\\cnxJzr{}}"
+      "codepoint": "{\\mktstfRaise{0.1}\\cnxJzr{}}"
     }
   },
   {
     "lo": 20059,
     "hi": 20059,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.25}乛}"
+      "codepoint": "{\\mktstfRaise{-0.25}乛}"
     }
   },
   {
     "lo": 40888,
     "hi": 40888,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.15}龸}"
+      "codepoint": "{\\mktstfRaise{-0.15}龸}"
     }
   },
   {
     "lo": 17553,
     "hi": 17553,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.1}\\cnxa{}䒑}"
+      "codepoint": "{\\mktstfRaise{-0.1}\\cnxa{}䒑}"
     }
   },
   {
     "lo": 23424,
     "hi": 23424,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.2}宀}"
+      "codepoint": "{\\mktstfRaise{-0.2}宀}"
     }
   },
   {
     "lo": 154327,
     "hi": 154327,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.2}\\cnxb{}𥫗}"
+      "codepoint": "{\\mktstfRaise{-0.2}\\cnxb{}𥫗}"
     }
   },
   {
     "lo": 32595,
     "hi": 32595,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.2}罓}"
+      "codepoint": "{\\mktstfRaise{-0.2}罓}"
     }
   },
   {
     "lo": 40885,
     "hi": 40885,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.1}\\cnxBabel{}龵}"
+      "codepoint": "{\\mktstfRaise{-0.1}\\cnxBabel{}龵}"
     }
   },
   {
     "lo": 40889,
     "hi": 40889,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.12}龹}"
+      "codepoint": "{\\mktstfRaise{-0.12}龹}"
     }
   },
   {
     "lo": 12295,
     "hi": 12295,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.05}\\cnxBabel{}〇}"
+      "codepoint": "{\\mktstfRaise{-0.05}\\cnxBabel{}〇}"
     }
   },
   {
@@ -1256,7 +1256,7 @@
     "lo": 136663,
     "hi": 136663,
     "tex": {
-      "codepoint": "{\\tfRaise{-0.1}\\cnxHanaA{}𡗗}"
+      "codepoint": "{\\mktstfRaise{-0.1}\\cnxHanaA{}𡗗}"
     }
   },
   {

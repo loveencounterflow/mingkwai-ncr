@@ -305,10 +305,6 @@ block_style_as_tex = ( block_style ) -> "\\#{block_style}{}"
 glyph_style_as_tex = ( glyph, glyph_style ) ->
   ### NOTE this code replaces parts of `tex-writer-typofix._style_chr` ###
   #.........................................................................................................
-  ### TAINT using `prPushRaise` here in place of `tfPushRaise` because it gives better
-  results ###
-  use_tfpushraise = no
-  #.........................................................................................................
   R         = []
   R.push "{"
   # R.push "\\cn" if is_cjk
@@ -319,19 +315,12 @@ glyph_style_as_tex = ( glyph, glyph_style ) ->
   # rpl_cmd   = glyph_style[ 'cmd'    ] ? rsg_command
   # rpl_cmd   = null if rpl_cmd is 'cn'
   #.........................................................................................................
-  if use_tfpushraise
-    if      rpl_push? and rpl_raise?  then R.push "\\prPushRaise{#{rpl_push}}{#{rpl_raise}}{"
-    else if rpl_push?                 then R.push "\\prPush{#{rpl_push}}{"
-    else if               rpl_raise?  then R.push "\\prRaise{#{rpl_raise}}{"
-  #.........................................................................................................
-  else
-    if      rpl_push? and rpl_raise?  then R.push "\\tfPushRaise{#{rpl_push}}{#{rpl_raise}}"
-    else if rpl_push?                 then R.push "\\tfPush{#{rpl_push}}"
-    else if               rpl_raise?  then R.push "\\tfRaise{#{rpl_raise}}"
+  if      rpl_push? and rpl_raise?  then R.push "\\mktstfPushRaise{#{rpl_push}}{#{rpl_raise}}"
+  else if rpl_push?                 then R.push "\\mktstfPush{#{rpl_push}}"
+  else if               rpl_raise?  then R.push "\\mktstfRaise{#{rpl_raise}}"
   #.........................................................................................................
   if rpl_cmd?                       then R.push "\\#{rpl_cmd}{}"
   R.push rpl_chr
-  R.push "}" if use_tfpushraise and ( rpl_push? or rpl_raise? )
   R.push "}"
   R = R.join ''
   return R
